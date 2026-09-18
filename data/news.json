@@ -1,0 +1,94 @@
+{
+  "updated": "2026-09-17",
+  "status": "estrutura inicial",
+  "news": [
+    {
+      "id": 1,
+      "region": "Brasil",
+      "category": "Mercado",
+      "title": "Mercado agrícola brasileiro",
+      "summary": "Acompanhar produção, exportações, câmbio e logística é essencial para interpretar os movimentos das commodities brasileiras.",
+      "commodities": ["Soja", "Milho", "Café", "Carnes"],
+      "impact": "Monitoramento",
+      "source": "Radar Agro",
+      "date": "2026-09-17"
+    },
+    {
+      "id": 2,
+      "region": "África",
+      "category": "Commodities",
+      "title": "África Ocidental e o mercado de cacau",
+      "summary": "Condições de produção na África Ocidental podem influenciar a oferta internacional de cacau.",
+      "commodities": ["Cacau"],
+      "impact": "Oferta mundial",
+      "source": "Radar Agro",
+      "date": "2026-09-17"
+    },
+    {
+      "id": 3,
+      "region": "China",
+      "category": "Demanda",
+      "title": "Demanda chinesa por commodities agrícolas",
+      "summary": "Importações e consumo chineses são variáveis importantes para o mercado internacional de soja, carnes e outros produtos agrícolas.",
+      "commodities": ["Soja", "Carnes"],
+      "impact": "Demanda mundial",
+      "source": "Radar Agro",
+      "date": "2026-09-17"
+    },
+    {
+      "id": 4,
+      "region": "Estados Unidos",
+      "category": "Produção",
+      "title": "Condições das lavouras norte-americanas",
+      "summary": "Clima e desenvolvimento das lavouras dos Estados Unidos podem alterar as expectativas de oferta de grãos.",
+      "commodities": ["Soja", "Milho", "Trigo"],
+      "impact": "Oferta mundial",
+      "source": "Radar Agro",
+      "date": "2026-09-17"
+    },
+    {
+      "id": 5,
+      "region": "Rússia e Ucrânia",
+      "category": "Geopolítica",
+      "title": "Geopolítica e mercados agrícolas",
+      "summary": "Acontecimentos envolvendo a região podem afetar fluxos de grãos, fertilizantes, energia e logística internacional.",
+      "commodities": ["Trigo", "Milho", "Fertilizantes"],
+      "impact": "Logística e oferta",
+      "source": "Radar Agro",
+      "date": "2026-09-17"
+    },
+    {
+      "id": 6,
+      "region": "Argentina",
+      "category": "Mercado",
+      "title": "Argentina no mercado mundial de grãos",
+      "summary": "Produção, exportações e políticas agrícolas argentinas podem influenciar a concorrência regional e os fluxos de commodities.",
+      "commodities": ["Soja", "Milho", "Trigo"],
+      "impact": "Concorrência",
+      "source": "Radar Agro",
+      "date": "2026-09-17"
+    },
+    {
+      "id": 7,
+      "region": "Índia",
+      "category": "Demanda",
+      "title": "Mercado agrícola indiano",
+      "summary": "Produção, consumo e políticas de comércio da Índia podem alterar os fluxos internacionais de alimentos.",
+      "commodities": ["Arroz", "Açúcar", "Algodão"],
+      "impact": "Oferta e demanda",
+      "source": "Radar Agro",
+      "date": "2026-09-17"
+    },
+    {
+      "id": 8,
+      "region": "Europa",
+      "category": "Comércio",
+      "title": "Mercado europeu de produtos agrícolas",
+      "summary": "Regulamentações, importações e condições econômicas europeias podem influenciar o comércio agrícola internacional.",
+      "commodities": ["Trigo", "Café", "Carnes"],
+      "impact": "Comércio",
+      "source": "Radar Agro",
+      "date": "2026-09-17"
+    }
+  ]
+}
