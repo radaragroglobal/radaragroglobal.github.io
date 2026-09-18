@@ -1,0 +1,127 @@
+name: Atualizar notícias do Radar Agro
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Buscar notícias
+        run: |
+          python - <<'PY'
+          import json
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timezone
+
+          queries = {
+              "Brasil": '(agriculture OR agribusiness OR soybean OR corn OR coffee) Brazil',
+              "África": '(agriculture OR cocoa OR coffee OR cotton OR grain) Africa',
+              "China": '(agriculture OR soybean OR corn OR wheat OR food) China',
+              "Estados Unidos": '(agriculture OR soybean OR corn OR wheat) United States',
+              "Argentina": '(agriculture OR soybean OR corn OR wheat) Argentina',
+              "Europa": '(agriculture OR wheat OR food OR grain) Europe',
+              "Índia": '(agriculture OR rice OR sugar OR cotton) India',
+              "Austrália": '(agriculture OR wheat OR grain) Australia',
+              "Rússia e Ucrânia": '(grain OR wheat OR fertilizer OR agriculture) Russia Ukraine',
+              "Oriente Médio": '(agriculture OR food OR grain OR fertilizer) Middle East',
+              "América Latina": '(agriculture OR soybean OR corn OR coffee) Latin America'
+          }
+
+          articles = []
+
+          for region, query in queries.items():
+
+              params = {
+                  "query": query,
+                  "mode": "artlist",
+                  "format": "json",
+                  "maxrecords": "10",
+                  "timespan": "24h",
+                  "sort": "datedesc"
+              }
+
+              url = (
+                  "https://api.gdeltproject.org/api/v2/doc/doc?"
+                  + urllib.parse.urlencode(params)
+              )
+
+              try:
+                  with urllib.request.urlopen(url, timeout=30) as response:
+                      data = json.loads(response.read().decode("utf-8"))
+
+                  for item in data.get("articles", []):
+
+                      title = item.get("title", "").strip()
+                      link = item.get("url", "").strip()
+                      date = item.get("seendate", "").strip()
+                      domain = item.get("domain", "").strip()
+
+                      if not title or not link:
+                          continue
+
+                      articles.append({
+                          "region": region,
+                          "title": title,
+                          "url": link,
+                          "source": domain,
+                          "date": date
+                      })
+
+              except Exception as error:
+                  print(f"Erro ao buscar {region}: {error}")
+
+          # Remove duplicatas
+          unique = {}
+
+          for article in articles:
+              unique[article["url"]] = article
+
+          articles = list(unique.values())
+
+          # Ordena por data recebida
+          articles.sort(
+              key=lambda x: x.get("date", ""),
+              reverse=True
+          )
+
+          output = {
+              "updated": datetime.now(timezone.utc).isoformat(),
+              "source": "GDELT",
+              "news": articles[:100]
+          }
+
+          with open("data/news-live.json", "w", encoding="utf-8") as file:
+              json.dump(output, file, ensure_ascii=False, indent=2)
+
+          print(f"Notícias encontradas: {len(articles)}")
+          PY
+
+      - name: Salvar notícias atualizadas
+        run: |
+          git config user.name "Radar Agro Bot"
+          git config user.email "radaragroglobal@users.noreply.github.com"
+
+          git add data/news-live.json
+
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração nas notícias."
+          else
+            git commit -m "Atualizar notícias do Radar Agro"
+            git push
+          fi
