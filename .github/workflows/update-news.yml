@@ -38,59 +38,105 @@ jobs:
 
           queries = {
 
-              "Brasil":
-                  '(soybean OR corn OR coffee OR sugar OR beef OR agriculture) Brazil',
+              "Brasil": [
+                  "soybean Brazil",
+                  "corn Brazil",
+                  "coffee Brazil",
+                  "sugar Brazil",
+                  "beef Brazil",
+                  "agriculture Brazil"
+              ],
 
-              "África":
-                  '(cocoa OR coffee OR cotton OR corn OR wheat OR agriculture) Africa',
+              "África": [
+                  "cocoa Africa",
+                  "coffee Africa",
+                  "cotton Africa",
+                  "corn Africa",
+                  "wheat Africa",
+                  "agriculture Africa"
+              ],
 
-              "China":
-                  '(soybean OR corn OR wheat OR agriculture OR food) China',
+              "China": [
+                  "soybean China",
+                  "corn China",
+                  "wheat China",
+                  "agriculture China",
+                  "food China"
+              ],
 
-              "Estados Unidos":
-                  '(soybean OR corn OR wheat OR agriculture) "United States"',
+              "Estados Unidos": [
+                  "soybean United States",
+                  "corn United States",
+                  "wheat United States",
+                  "agriculture United States"
+              ],
 
-              "Argentina":
-                  '(soybean OR corn OR wheat OR agriculture) Argentina',
+              "Argentina": [
+                  "soybean Argentina",
+                  "corn Argentina",
+                  "wheat Argentina",
+                  "agriculture Argentina"
+              ],
 
-              "Europa":
-                  '(wheat OR grain OR agriculture OR food OR fertilizer) Europe',
+              "Europa": [
+                  "wheat Europe",
+                  "grain Europe",
+                  "agriculture Europe",
+                  "food Europe",
+                  "fertilizer Europe"
+              ],
 
-              "Índia":
-                  '(rice OR sugar OR cotton OR agriculture) India',
+              "Índia": [
+                  "rice India",
+                  "sugar India",
+                  "cotton India",
+                  "agriculture India"
+              ],
 
-              "Austrália":
-                  '(wheat OR grain OR agriculture) Australia',
+              "Austrália": [
+                  "wheat Australia",
+                  "grain Australia",
+                  "agriculture Australia"
+              ],
 
-              "Rússia e Ucrânia":
-                  '(wheat OR grain OR fertilizer OR agriculture) (Russia OR Ukraine)',
+              "Rússia e Ucrânia": [
+                  "wheat Russia",
+                  "wheat Ukraine",
+                  "grain Russia",
+                  "grain Ukraine",
+                  "fertilizer Russia",
+                  "agriculture Ukraine"
+              ],
 
-              "Oriente Médio":
-                  '(grain OR food OR fertilizer OR agriculture) "Middle East"',
+              "Oriente Médio": [
+                  "grain Middle East",
+                  "food Middle East",
+                  "fertilizer Middle East",
+                  "agriculture Middle East"
+              ],
 
-              "América Latina":
-                  '(soybean OR corn OR coffee OR agriculture) "Latin America"'
+              "América Latina": [
+                  "soybean Latin America",
+                  "corn Latin America",
+                  "coffee Latin America",
+                  "agriculture Latin America"
+              ]
           }
 
           articles = []
 
           # =====================================================
-          # BUSCA NO GDELT
+          # FUNÇÃO DE BUSCA NO GDELT
           # =====================================================
 
-          for region, query in queries.items():
-
-              print("")
-              print("========================================")
-              print("Buscando:", region)
-              print("========================================")
+          def search_gdelt(query, region):
 
               params = {
                   "query": query,
                   "mode": "artlist",
                   "format": "json",
                   "maxrecords": "20",
-                  "timespan": "48h",
+                  "timespan": "7d",
                   "sort": "datedesc"
               }
 
@@ -99,18 +145,18 @@ jobs:
                   + urllib.parse.urlencode(params)
               )
 
-              try:
+              request = urllib.request.Request(
+                  url,
+                  headers={
+                      "User-Agent": "Mozilla/5.0 RadarAgroGlobal/1.0"
+                  }
+              )
 
-                  request = urllib.request.Request(
-                      url,
-                      headers={
-                          "User-Agent": "RadarAgroGlobal/1.0"
-                      }
-                  )
+              try:
 
                   with urllib.request.urlopen(
                       request,
-                      timeout=45
+                      timeout=60
                   ) as response:
 
                       raw = response.read().decode("utf-8")
@@ -137,6 +183,10 @@ jobs:
                           item.get("domain", "")
                       ).strip()
 
+                      language = str(
+                          item.get("language", "")
+                      ).strip()
+
                       if not title or not link:
                           continue
 
@@ -150,25 +200,50 @@ jobs:
 
                           "source": domain,
 
-                          "date": date
+                          "date": date,
+
+                          "language": language
 
                       })
 
                       found += 1
 
                   print(
-                      "Notícias encontradas:",
+                      "   Resultados:",
                       found
                   )
 
               except Exception as error:
 
                   print(
-                      "Erro ao buscar",
-                      region,
-                      ":",
+                      "   Erro:",
                       error
                   )
+
+
+          # =====================================================
+          # EXECUTAR TODAS AS BUSCAS
+          # =====================================================
+
+          for region, region_queries in queries.items():
+
+              print("")
+              print("========================================")
+              print("REGIÃO:", region)
+              print("========================================")
+
+              for query in region_queries:
+
+                  print(
+                      "Buscando:",
+                      query
+                  )
+
+                  search_gdelt(
+                      query,
+                      region
+                  )
+
 
           # =====================================================
           # REMOVER DUPLICADAS
@@ -178,7 +253,7 @@ jobs:
 
           for article in articles:
 
-              url = article.get("url")
+              url = article.get("url", "").strip()
 
               if url:
                   unique[url] = article
@@ -187,17 +262,17 @@ jobs:
               unique.values()
           )
 
+
           # =====================================================
           # ORDENAR POR DATA
           # =====================================================
 
           articles.sort(
-
               key=lambda article:
                   article.get("date", ""),
-
               reverse=True
           )
+
 
           # =====================================================
           # LIMITAR RESULTADOS
@@ -205,26 +280,32 @@ jobs:
 
           articles = articles[:150]
 
+
           # =====================================================
-          # GERAR JSON
+          # DATA DA ATUALIZAÇÃO
+          # =====================================================
+
+          now = datetime.now(
+              timezone.utc
+          ).isoformat()
+
+
+          # =====================================================
+          # GERAR ARQUIVO
           # =====================================================
 
           output = {
 
-              "updated":
-                  datetime.now(
-                      timezone.utc
-                  ).isoformat(),
+              "updated": now,
 
-              "source":
-                  "GDELT",
+              "source": "GDELT",
 
-              "count":
-                  len(articles),
+              "count": len(articles),
 
-              "news":
-                  articles
+              "news": articles
+
           }
+
 
           with open(
               "data/news-live.json",
@@ -239,15 +320,27 @@ jobs:
                   indent=2
               )
 
+
+          # =====================================================
+          # RELATÓRIO
+          # =====================================================
+
           print("")
           print("========================================")
+          print("RADAR AGRO - ATUALIZAÇÃO CONCLUÍDA")
+          print("========================================")
           print(
-              "TOTAL DE NOTÍCIAS:",
+              "Total de notícias:",
               len(articles)
+          )
+          print(
+              "Arquivo:",
+              "data/news-live.json"
           )
           print("========================================")
 
           PY
+
 
       # =======================================================
       # SALVAR ARQUIVO ATUALIZADO
