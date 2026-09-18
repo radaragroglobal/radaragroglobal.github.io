@@ -1,7 +1,7 @@
 {
-  "updated": "2026-09-18T03:13:26.431430+00:00",
+  "updated": "2026-09-18T03:38:22.419352+00:00",
   "source": "GDELT",
-  "count": 150,
+  "count": 96,
   "news": [
     {
       "region": "Estados Unidos",
@@ -68,36 +68,12 @@
       "language": "Chinese"
     },
     {
-      "region": "China",
-      "title": "服贸新观察｜首设出海服务展区 中国服贸迎新机",
-      "url": "https://baijiahao.baidu.com/s?id=1876183267264014703",
-      "source": "baijiahao.baidu.com",
-      "date": "20260913T090000Z",
-      "language": "Chinese"
-    },
-    {
       "region": "Europa",
       "title": "Fede ilişkin faiz artırım beklentisi emtia piyasasında satış baskısını yükseltti",
       "url": "https://www.haberler.com/ekonomi/fed-e-iliskin-faiz-artirim-beklentisi-emtia-20232738-haberi/",
       "source": "haberler.com",
       "date": "20260913T084500Z",
       "language": "Turkish"
-    },
-    {
-      "region": "Brasil",
-      "title": "Trump EOs Back Ranchers , COOL Needs Congress ; 300K MT Beef Imports Will Come Revealed - AG INFORMATION NETWORK OF THE WEST",
-      "url": "https://www.aginfo.net/report/66251/2/Trump-EOs-Back-Ranchers-COOL-Needs-Congress-300K-MT-Beef-Imports-Will-Come-Revealed",
-      "source": "aginfo.net",
-      "date": "20260913T084500Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "服贸新观察｜首设出海服务展区 中国服贸迎新机",
-      "url": "https://www.163.com/dy/article/L6N4F9EG05346RC6.html",
-      "source": "163.com",
-      "date": "20260913T084500Z",
-      "language": "Chinese"
     },
     {
       "region": "Europa",
@@ -196,46 +172,6 @@
       "language": "Spanish"
     },
     {
-      "region": "Austrália",
-      "title": "Haftanın tarihine bakış",
-      "url": "https://www.haberler.com/guncel/haftanin-tarihine-bakis-20232730-haberi/",
-      "source": "haberler.com",
-      "date": "20260913T084500Z",
-      "language": "Turkish"
-    },
-    {
-      "region": "China",
-      "title": "Benin bets on turning its cotton crop into clothes at home",
-      "url": "https://www.mankatofreepress.com/news/business/benin-bets-on-turning-its-cotton-crop-into-clothes-at-home/article_8a1bf364-d2fc-5f5c-a8e5-c13d235d068b.html",
-      "source": "mankatofreepress.com",
-      "date": "20260913T081500Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "Benin bets on turning its cotton crop into clothes at home",
-      "url": "https://www.wsls.com/news/world/2026/09/13/benin-bets-on-turning-its-cotton-crop-into-clothes-at-home/",
-      "source": "wsls.com",
-      "date": "20260913T081500Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "Dryland Congress 2026 concludes with Delhi Declaration on drylands",
-      "url": "http://www.shanghainews.net/news/279304102/dryland-congress-2026-concludes-with-delhi-declaration-on-drylands",
-      "source": "shanghainews.net",
-      "date": "20260913T081500Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "Dryland Congress 2026 concludes with Delhi Declaration on drylands",
-      "url": "http://www.chinanationalnews.com/news/279304102/dryland-congress-2026-concludes-with-delhi-declaration-on-drylands",
-      "source": "chinanationalnews.com",
-      "date": "20260913T081500Z",
-      "language": "English"
-    },
-    {
       "region": "Estados Unidos",
       "title": "It Started So Good : Mom Grocery Cart Horrifies The Internet As She Shops Like A Toddler Let Loose",
       "url": "https://www.boredpanda.com/grocery-shopping-young-american-mom-no-budget/?cexp_id=160968&_f=homepage_featured&cexp_var=5",
@@ -252,54 +188,6 @@
       "language": "Chinese"
     },
     {
-      "region": "China",
-      "title": "Dryland Congress 2026 concludes with Delhi Declaration on drylands",
-      "url": "http://www.calcuttanews.net/news/279304102/dryland-congress-2026-concludes-with-delhi-declaration-on-drylands",
-      "source": "calcuttanews.net",
-      "date": "20260913T080000Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "耳机性能排行榜 华为旗舰与百元高质同台竞技",
-      "url": "https://dcdv.zol.com.cn/1246/12465976.html",
-      "source": "dcdv.zol.com.cn",
-      "date": "20260913T080000Z",
-      "language": "Chinese"
-    },
-    {
-      "region": "China",
-      "title": "Stretti che non sono Hormuz",
-      "url": "https://www.ilpost.it/2026/07/16/stretti-hormuz-navigazione-mondo/?homepagePosition=21.1&referrerPost=3677460",
-      "source": "ilpost.it",
-      "date": "20260913T080000Z",
-      "language": "Italian"
-    },
-    {
-      "region": "Argentina",
-      "title": "Una primavera movida",
-      "url": "https://rurales.elpais.com.uy/opinion/una-primavera-movida",
-      "source": "rurales.elpais.com.uy",
-      "date": "20260913T080000Z",
-      "language": "Spanish"
-    },
-    {
-      "region": "Austrália",
-      "title": "Söder : CSU wird Kanzler Merz „ auf keinen Fall  stürzen - Politik",
-      "url": "https://www.sueddeutsche.de/politik/bundesregierung-liveblog-soeder-merz-cdu-csu-kanzlersturz-li.3529564",
-      "source": "sueddeutsche.de",
-      "date": "20260913T080000Z",
-      "language": "German"
-    },
-    {
-      "region": "China",
-      "title": "Dryland Congress 2026 concludes with Delhi Declaration on drylands",
-      "url": "http://www.nepalnational.com/news/279304102/dryland-congress-2026-concludes-with-delhi-declaration-on-drylands",
-      "source": "nepalnational.com",
-      "date": "20260913T074500Z",
-      "language": "English"
-    },
-    {
       "region": "Estados Unidos",
       "title": "It Started So Good : Mom Grocery Cart Horrifies The Internet As She Shops Like A Toddler Let Loose",
       "url": "https://www.boredpanda.com/grocery-shopping-young-american-mom-no-budget/?cexp_id=160968&_f=homepage_featured&cexp_var=6",
@@ -308,34 +196,10 @@
       "language": "English"
     },
     {
-      "region": "Austrália",
-      "title": "深圳 潮州产业协作对接会在潮州举行 - 潮州新闻网 - 潮州日报官方网站",
-      "url": "https://www.chaozhoudaily.com/content/202609/13/c26084369.html",
-      "source": "chaozhoudaily.com",
-      "date": "20260913T074500Z",
-      "language": "Chinese"
-    },
-    {
       "region": "China",
-      "title": "Benin bets on turning its cotton crop into clothes at home",
-      "url": "http://www.wdtimes.com/news/world/benin-bets-on-turning-its-cotton-crop-into-clothes-at-home/article_dce72e20-af42-58c1-bfb4-3aead39edb7e.html",
-      "source": "wdtimes.com",
-      "date": "20260913T073000Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "「 天眼调查 」 毕节林口镇一村道被碾成  豆腐块 ， 超限超载治理何时见效 ？",
-      "url": "https://baijiahao.baidu.com/s?id=1876198170047748168",
-      "source": "baijiahao.baidu.com",
-      "date": "20260913T073000Z",
-      "language": "Chinese"
-    },
-    {
-      "region": "Estados Unidos",
-      "title": "冰雪災接連爆發 ！ 超強厄爾尼諾 「 火上澆油 」 人類越過安全紅線 - 國際",
-      "url": "https://www.wenweipo.com/a/202609/13/AP6aa60a90e4b01d54a282ef16.html",
-      "source": "wenweipo.com",
+      "title": "一致行动人  散伙  后仍现同步操作 ， 超级牛散资本谜题何解 ？",
+      "url": "https://www.stcn.com/article/detail/4183042.html",
+      "source": "stcn.com",
       "date": "20260913T073000Z",
       "language": "Chinese"
     },
@@ -349,6 +213,14 @@
     },
     {
       "region": "Estados Unidos",
+      "title": "冰雪災接連爆發 ！ 超強厄爾尼諾 「 火上澆油 」 人類越過安全紅線 - 國際",
+      "url": "https://www.wenweipo.com/a/202609/13/AP6aa60a90e4b01d54a282ef16.html",
+      "source": "wenweipo.com",
+      "date": "20260913T073000Z",
+      "language": "Chinese"
+    },
+    {
+      "region": "Estados Unidos",
       "title": "It Started So Good : Mom Grocery Cart Horrifies The Internet As She Shops Like A Toddler Let Loose",
       "url": "https://www.boredpanda.com/grocery-shopping-young-american-mom-no-budget/?cexp_id=160971&_f=homepage_featured&cexp_var=2",
       "source": "boredpanda.com",
@@ -356,51 +228,11 @@
       "language": "English"
     },
     {
-      "region": "China",
-      "title": "新京报  我们视频  十周年 ， 新闻视频勃兴十年开放麦  在京举办 _ 新浪科技 _ 新浪网",
-      "url": "https://finance.sina.com.cn/tech/roll/2026-09-13/doc-inirscxz0528333.shtml",
-      "source": "finance.sina.com.cn",
-      "date": "20260913T071500Z",
-      "language": "Chinese"
-    },
-    {
-      "region": "China",
-      "title": "中国男子  挨一巴掌  倒地 抢救15天仍死亡 ＊ 阿波罗新闻网",
-      "url": "https://www.aboluowang.com/2026/0913/2432901.html",
-      "source": "aboluowang.com",
-      "date": "20260913T071500Z",
-      "language": "Chinese"
-    },
-    {
-      "region": "China",
-      "title": "Кабачки можно превратить в снеки , пиццу и варенье : что приготовить из лишнего урожая - новости за сентябрь 2026",
-      "url": "https://24smi.org/article/479827-kabachok-master-maskirovki-pod-drugie-produkty-kak.html",
-      "source": "24smi.org",
-      "date": "20260913T071500Z",
-      "language": "Russian"
-    },
-    {
-      "region": "China",
-      "title": "服贸新观察｜首设出海服务展区 中国服贸迎新机",
-      "url": "https://baijiahao.baidu.com/s?id=1876183037685236300",
-      "source": "baijiahao.baidu.com",
-      "date": "20260913T071500Z",
-      "language": "Chinese"
-    },
-    {
-      "region": "China",
-      "title": "Dryland Congress 2026 concludes with Delhi Declaration on drylands",
-      "url": "http://www.malaysiasun.com/news/279304102/dryland-congress-2026-concludes-with-delhi-declaration-on-drylands",
-      "source": "malaysiasun.com",
-      "date": "20260913T071500Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "Dryland Congress 2026 concludes with Delhi Declaration on drylands",
-      "url": "http://www.bangladeshsun.com/news/279304102/dryland-congress-2026-concludes-with-delhi-declaration-on-drylands",
-      "source": "bangladeshsun.com",
-      "date": "20260913T070000Z",
+      "region": "Estados Unidos",
+      "title": "It Started So Good : Mom Grocery Cart Horrifies The Internet As She Shops Like A Toddler Let Loose",
+      "url": "https://www.boredpanda.com/grocery-shopping-young-american-mom-no-budget/?cexp_id=160968&_f=homepage_featured&cexp_var=1",
+      "source": "boredpanda.com",
+      "date": "20260913T064500Z",
       "language": "English"
     },
     {
@@ -412,44 +244,12 @@
       "language": "Latvian"
     },
     {
-      "region": "Estados Unidos",
-      "title": "It Started So Good : Mom Grocery Cart Horrifies The Internet As She Shops Like A Toddler Let Loose",
-      "url": "https://www.boredpanda.com/grocery-shopping-young-american-mom-no-budget/?cexp_id=160968&_f=homepage_featured&cexp_var=1",
-      "source": "boredpanda.com",
-      "date": "20260913T064500Z",
-      "language": "English"
-    },
-    {
       "region": "China",
-      "title": "Benin bets on turning its cotton crop into clothes at home",
-      "url": "https://mymotherlode.com/news/world/11136054/benin-bets-on-turning-its-cotton-crop-into-clothes-at-home.html",
-      "source": "mymotherlode.com",
+      "title": "一致行动人  散伙  后仍现同步操作 ， 超级牛散资本谜题何解 ？_ 新浪财经 _ 新浪网",
+      "url": "https://finance.sina.com.cn/wm/2026-09-13/doc-inirscye4635655.shtml",
+      "source": "finance.sina.com.cn",
       "date": "20260913T061500Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "Benin bets on turning its cotton crop into clothes at home",
-      "url": "https://www.the-messenger.com/news/world/article_7e8df161-c216-5e2c-ad47-02def05448f0.html",
-      "source": "the-messenger.com",
-      "date": "20260913T061500Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "Dryland Congress 2026 concludes with Delhi Declaration on drylands",
-      "url": "https://aninews.in/news/national/general-news/dryland-congress-2026-concludes-with-delhi-declaration-on-drylands20260913095927/",
-      "source": "aninews.in",
-      "date": "20260913T061500Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "Dryland Congress 2026 concludes with Delhi Declaration on drylands",
-      "url": "http://www.australiannews.net/news/279304102/dryland-congress-2026-concludes-with-delhi-declaration-on-drylands",
-      "source": "australiannews.net",
-      "date": "20260913T061500Z",
-      "language": "English"
+      "language": "Chinese"
     },
     {
       "region": "Estados Unidos",
@@ -461,11 +261,19 @@
     },
     {
       "region": "China",
-      "title": "Benin bets on turning its cotton crop into clothes at home",
-      "url": "https://www.clickorlando.com/news/world/2026/09/13/benin-bets-on-turning-its-cotton-crop-into-clothes-at-home/",
-      "source": "clickorlando.com",
+      "title": "奋进  十五五  民企勇担当｜盛昌种业 种下  南北联动  故事",
+      "url": "https://www.hljnews.cn/jjny/content/2026-09/13/content_908132.html",
+      "source": "hljnews.cn",
       "date": "20260913T060000Z",
-      "language": "English"
+      "language": "Chinese"
+    },
+    {
+      "region": "China",
+      "title": "一致行动人  散伙  后仍现同步操作 _ 凤凰网",
+      "url": "https://finance.ifeng.com/c/8wNugtjRBit",
+      "source": "finance.ifeng.com",
+      "date": "20260913T060000Z",
+      "language": "Chinese"
     },
     {
       "region": "Estados Unidos",
@@ -473,30 +281,6 @@
       "url": "https://www.boredpanda.com/grocery-shopping-young-american-mom-no-budget/?cexp_id=160968&_f=homepage_featured&cexp_var=12",
       "source": "boredpanda.com",
       "date": "20260913T060000Z",
-      "language": "English"
-    },
-    {
-      "region": "Austrália",
-      "title": "Comedy war mein Schicksal  ...: Was vielleicht den Blick auf Bülent Ceylan ändert - Kultur Regional",
-      "url": "https://www.rnz.de/kultur/kultur-regional_artikel,-Comedy-war-mein-Schicksal-Was-vielleicht-den-Blick-auf-Buelent-Ceylan-aendert-_arid,2427555.html",
-      "source": "rnz.de",
-      "date": "20260913T060000Z",
-      "language": "German"
-    },
-    {
-      "region": "China",
-      "title": "Benin bets on turning its cotton crop into clothes at home",
-      "url": "http://www.sitkasentinel.com/stories/benin-bets-on-turning-its-cotton-crop-into-clothes-at-home,170430",
-      "source": "sitkasentinel.com",
-      "date": "20260913T053000Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "JI women wing protest stalls traffic , businesses",
-      "url": "https://tribune.com.pk/story/2629003/ji-womens-wing-protest-stalls-traffic-businesses",
-      "source": "tribune.com.pk",
-      "date": "20260913T053000Z",
       "language": "English"
     },
     {
@@ -508,7 +292,7 @@
       "language": "Chinese"
     },
     {
-      "region": "Austrália",
+      "region": "Estados Unidos",
       "title": "The People Republic : How they rule - Tribune Online",
       "url": "https://tribuneonlineng.com/the-peoples-republic-how-they-rule-23/",
       "source": "tribuneonlineng.com",
@@ -516,52 +300,36 @@
       "language": "English"
     },
     {
-      "region": "Austrália",
-      "title": "Premier Leads Jobs Mission To India And Vietnam",
-      "url": "https://www.miragenews.com/premier-leads-jobs-mission-to-india-and-vietnam-1743174/",
-      "source": "miragenews.com",
-      "date": "20260913T053000Z",
-      "language": "English"
-    },
-    {
-      "region": "Brasil",
-      "title": "Una feria porteña gigante para celebrar a 50 colectividades en la Avenida de Mayo",
-      "url": "https://www.agencianova.com/nota.asp?n=2026_9_13&id=172518&id_tiponota=1",
-      "source": "agencianova.com",
-      "date": "20260913T041500Z",
-      "language": "Spanish"
-    },
-    {
-      "region": "Estados Unidos",
-      "title": "加息概率飙到86 %， 美元却没全面走强 ， 问题出在欧元 、 英镑和日元身上 _ 汇市观察 _ 外汇 _ 中金在线",
-      "url": "http://forex.cnfol.com/jingjiyaowen/20260913/32368201.shtml",
-      "source": "forex.cnfol.com",
+      "region": "China",
+      "title": "超强  厄尔尼诺将至 最新预测 ！ 农产品板块 再次  点火 ？ _ 东方财富网",
+      "url": "https://finance.eastmoney.com/a/202609123872735640.html",
+      "source": "finance.eastmoney.com",
       "date": "20260913T041500Z",
       "language": "Chinese"
     },
     {
-      "region": "Estados Unidos",
-      "title": "四连阳后首阴 ： 原油最强周线为何突现高位分歧 _ 汇市观察 _ 外汇 _ 中金在线",
-      "url": "http://forex.cnfol.com/jingjiyaowen/20260913/32368200.shtml",
-      "source": "forex.cnfol.com",
-      "date": "20260913T041500Z",
-      "language": "Chinese"
-    },
-    {
-      "region": "África",
-      "title": "Una feria gigante para celebrar a 50 colectividades en la Avenida de Mayo",
-      "url": "https://zonanortevision.com.ar/428158/una-feria-gigante-para-celebrar-a-50-colectividades-en-la-avenida-de-mayo/",
-      "source": "zonanortevision.com.ar",
+      "region": "China",
+      "title": "突然火了 ！ 这些小众基金逆势上涨 ， 什么情况 ？_ 天天基金网",
+      "url": "https://fund.eastmoney.com/a/202609113872374182.html",
+      "source": "fund.eastmoney.com",
       "date": "20260913T030000Z",
-      "language": "Spanish"
+      "language": "Chinese"
     },
     {
-      "region": "Austrália",
+      "region": "Estados Unidos",
       "title": "હિમાલયની અતિ ઝડપથી પીગળતી હિમનદીઓ ભારતીય ઉપખંડમાં હાહાકાર મચાવશે",
       "url": "https://www.gujaratsamachar.com/news/ravi-purti/rapidly-melting-himalayan-glaciers-will-wreak-havoc-on-the-indian-subcontinent-70853596349",
       "source": "gujaratsamachar.com",
       "date": "20260913T030000Z",
       "language": "Gujarati"
+    },
+    {
+      "region": "Argentina",
+      "title": "曼晚 ： 阿兰目前还没准备好出场 ； 马雷斯卡希望球队踢得更主动",
+      "url": "https://www.163.com/dy/article/L6MTH7LU0549BAP0.html",
+      "source": "163.com",
+      "date": "20260913T030000Z",
+      "language": "Chinese"
     },
     {
       "region": "América Latina",
@@ -570,30 +338,6 @@
       "source": "baijiahao.baidu.com",
       "date": "20260913T030000Z",
       "language": "Chinese"
-    },
-    {
-      "region": "Austrália",
-      "title": "温室里的奇花异草 （ 2 ） - 博客",
-      "url": "https://blog.wenxuecity.com/myblog/78468/202609/9570.html",
-      "source": "blog.wenxuecity.com",
-      "date": "20260913T021500Z",
-      "language": "Chinese"
-    },
-    {
-      "region": "China",
-      "title": "Gitega : Ndayizeye Jean Bosco et ses amis révolutionnent lagriculture et l  élevage grâce à DTechno",
-      "url": "https://planeteafrique.com/Actualites/index.asp?affiche=News_Display.asp&ID=17756",
-      "source": "planeteafrique.com",
-      "date": "20260913T011500Z",
-      "language": "French"
-    },
-    {
-      "region": "Brasil",
-      "title": "The truth about Britain CHICKEN obsession : In 1958 , it was a luxury only 1 per cent of us ate . Now we consume 1 . 1BILLION of the birds a year . So why ARE we so addicted - and where does it REALLY come from ?",
-      "url": "https://www.dailymail.com/lifestyle/article-16126357/Britains-CHICKEN-obsession-1-BILLION-addicted.html",
-      "source": "dailymail.com",
-      "date": "20260913T003000Z",
-      "language": "English"
     },
     {
       "region": "América Latina",
@@ -612,60 +356,20 @@
       "language": "Spanish"
     },
     {
-      "region": "Austrália",
-      "title": "TV70 : Australia Most Iconic Shows of Primetime : 1956 - 69",
-      "url": "https://tvtonight.com.au/2026/09/tv70-australias-most-iconic-shows-of-primetime-1956-69.html",
-      "source": "tvtonight.com.au",
-      "date": "20260912T220000Z",
-      "language": "English"
-    },
-    {
-      "region": "Austrália",
-      "title": "Get to know the 2026 Kincardine municipal election candidates",
-      "url": "https://www.owensoundsuntimes.com/kincardine/get-to-know-the-2026-kincardine-municipal-election-candidates/",
-      "source": "owensoundsuntimes.com",
-      "date": "20260912T220000Z",
-      "language": "English"
-    },
-    {
-      "region": "Austrália",
-      "title": "PHOTOS : North Thompson Fall Fair & Rodeo celebrates region agricultural roots in Barriere",
-      "url": "https://vernonmorningstar.com/2026/09/12/photos-north-thompson-fall-fair-rodeo-celebrates-regions-agricultural-roots-in-barriere/",
-      "source": "vernonmorningstar.com",
-      "date": "20260912T220000Z",
-      "language": "English"
-    },
-    {
-      "region": "Austrália",
-      "title": "Scoperto luso di sostanze psicoattive 25mila anni fa in Indonesia",
-      "url": "https://www.ilsole24ore.com/art/l-uomo-faceva-uso-sostanze-psicoattive-gia-25mila-anni-fa-AJszfVBB",
-      "source": "ilsole24ore.com",
-      "date": "20260912T214500Z",
-      "language": "Italian"
-    },
-    {
-      "region": "Brasil",
-      "title": "Los BRICS rechazan el bloqueo y reafirman su apoyo a Cuba",
-      "url": "https://barrigaverde.net/los-brics-rechazan-el-bloqueo-y-reafirman-su-apoyo-a-cuba/",
-      "source": "barrigaverde.net",
-      "date": "20260912T210000Z",
+      "region": "Argentina",
+      "title": "Las exportaciones argentinas crecieron casi 50 % en los últimos tres años",
+      "url": "http://www.lanueva.com/nota/2026-9-12-15-23-0-las-exportaciones-argentinas-crecieron-casi-50-en-los-ultimos-tres-anos",
+      "source": "lanueva.com",
+      "date": "20260912T203000Z",
       "language": "Spanish"
     },
     {
-      "region": "Brasil",
-      "title": "SLC Agricola Raises US$101 Million in Rural Notes",
-      "url": "https://www.riotimesonline.com/slc-agricola-rural-notes-jpmorgan-upgrade-2026/",
-      "source": "riotimesonline.com",
+      "region": "Argentina",
+      "title": "Exportaciones argentinas crecieron casi 50 % en los últimos tres años por el impulso de la minería y la energía",
+      "url": "https://www.contextotucuman.com/nota/417359/exportaciones-argentinas-crecieron-casi-50_por_ciento-en-los-ultimos-tres-anos-por-el-impulso-de-la-mineria-y-la-energia.html",
+      "source": "contextotucuman.com",
       "date": "20260912T203000Z",
-      "language": "English"
-    },
-    {
-      "region": "China",
-      "title": "留住眷村的忠孝精神 「 邱厝里 」 百人說故事 | 空軍 | 台中 | 眷村",
-      "url": "http://www.epochtimes.com.tw/n513303/%E7%95%99%E4%BD%8F%E7%9C%B7%E6%9D%91%E7%9A%84%E5%BF%A0%E5%AD%9D%E7%B2%BE%E7%A5%9E--%E9%82%B1%E5%8E%9D%E9%87%8C%E7%99%BE%E4%BA%BA%E8%AA%AA%E6%95%85%E4%BA%8B.html",
-      "source": "epochtimes.com.tw",
-      "date": "20260912T203000Z",
-      "language": "Chinese"
+      "language": "Spanish"
     },
     {
       "region": "América Latina",
@@ -684,14 +388,6 @@
       "language": "Hungarian"
     },
     {
-      "region": "Austrália",
-      "title": "PHOTOS : North Thompson Fall Fair & Rodeo celebrates region agricultural roots in Barriere",
-      "url": "https://quesnelobserver.com/2026/09/12/photos-north-thompson-fall-fair-rodeo-celebrates-regions-agricultural-roots-in-barriere/",
-      "source": "quesnelobserver.com",
-      "date": "20260912T200000Z",
-      "language": "English"
-    },
-    {
       "region": "América Latina",
       "title": "Narni . Pillole . Oibò , manca ancora il vescovo , lenzuolate per matrimoni , le bellissime statue di bambini . Quindi oggi …",
       "url": "https://terninrete.it/notizie-di-terni-narni-pillole-oibo-manca-ancora-il-vescovo-lenzuolate-per-matrimoni-le-bellissime-statue-di-bambini-quindi-oggi/",
@@ -700,12 +396,12 @@
       "language": "Italian"
     },
     {
-      "region": "África",
-      "title": "Time to book that Dubai trip ? What it really like to holiday in the Gulf playground six months on from the Middle East conflict",
-      "url": "https://www.dailymail.com/travel/article-16114789/Dubai-holiday-Middle-East-conflict-winter-sun.html",
-      "source": "dailymail.com",
+      "region": "China",
+      "title": "千里沃野夺秋收 - 新华网",
+      "url": "https://www.news.cn/politics/20260913/80e8c71a06de4106b171780a242440be/c.html",
+      "source": "news.cn",
       "date": "20260912T193000Z",
-      "language": "English"
+      "language": "Chinese"
     },
     {
       "region": "Estados Unidos",
@@ -714,22 +410,6 @@
       "source": "wenxuecity.com",
       "date": "20260912T191500Z",
       "language": "Chinese"
-    },
-    {
-      "region": "Argentina",
-      "title": "Viento de cola en la era Milei : reprimarización de la economía y destrucción de empresas",
-      "url": "http://www.eldestapeweb.com/economia/viento-cola-era-milei-reprimarizacion-economia-destruccion-empresas-2026912143931",
-      "source": "eldestapeweb.com",
-      "date": "20260912T191500Z",
-      "language": "Spanish"
-    },
-    {
-      "region": "China",
-      "title": "Jedna zemlja se zagreva sporije od ostatka sveta , ni naučnici ne znaju zašto",
-      "url": "https://www.danas.rs/zivot/zemlja-koja-se-zagreva-sporije-od-ostatka-sveta/",
-      "source": "danas.rs",
-      "date": "20260912T184500Z",
-      "language": "Serbian"
     },
     {
       "region": "Estados Unidos",
@@ -756,6 +436,14 @@
       "language": "Spanish"
     },
     {
+      "region": "Argentina",
+      "title": "Las exportaciones argentinas crecieron casi 50 % en los últimos tres años por el impulso de la minería y la energía",
+      "url": "https://tn.com.ar/economia/2026/09/12/las-exportaciones-argentinas-crecieron-casi-50-en-los-ultimos-tres-anos-por-el-impulso-de-la-mineria-y-la-energia/",
+      "source": "tn.com.ar",
+      "date": "20260912T184500Z",
+      "language": "Spanish"
+    },
+    {
       "region": "Estados Unidos",
       "title": "Journey for 9 / 11 25th anniversary reveals country that hopes to unite again",
       "url": "https://www.dailybreeze.com/2026/09/12/journey-for-9-11-25th-anniversary-reveals-country-that-hopes-to-unite-again/",
@@ -764,28 +452,12 @@
       "language": "English"
     },
     {
-      "region": "Austrália",
+      "region": "Argentina",
       "title": "Portul Constanța , nod strategic pentru cerealele din regiunea Mării Negre . Avertismentul unui analist : „ Poate deveni motiv de război",
       "url": "https://adevarul.ro/economie/portul-constanta-nod-strategic-pentru-cerealele-2556860.html",
       "source": "adevarul.ro",
       "date": "20260912T171500Z",
       "language": "Romanian"
-    },
-    {
-      "region": "Austrália",
-      "title": "No . 44 : Anat Vidor , Nitsana Darshan - Leitner , and Joseph Gitler",
-      "url": "http://www.jpost.com/influencers-26/50jews-26/article-907928",
-      "source": "jpost.com",
-      "date": "20260912T171500Z",
-      "language": "English"
-    },
-    {
-      "region": "Austrália",
-      "title": "Άλμα στις τιμές των ναύλων : Γεωπολιτικές εντάσεις και μεγάλες διαδρομές φέρνουν « ράλι » στα ξηρά φορτία - Ο ρόλος του καιρού",
-      "url": "https://www.enikonomia.gr/economy/alma-stis-times-ton-navlon-geopolitik/714639/",
-      "source": "enikonomia.gr",
-      "date": "20260912T170000Z",
-      "language": "Greek"
     },
     {
       "region": "Estados Unidos",
@@ -796,44 +468,20 @@
       "language": "English"
     },
     {
-      "region": "Brasil",
-      "title": "Marchas y eventos en la CdMx este sábado 12 de septiembre",
-      "url": "https://www.sinembargo.mx/4869292/cierres-viales-en-la-cdmx-por-marchas-y-espectaculos-este-sabado-12-de-septiembre/",
-      "source": "sinembargo.mx",
-      "date": "20260912T163000Z",
-      "language": "Spanish"
-    },
-    {
       "region": "Argentina",
-      "title": "Milei y Kicillof : el café que puede mover el riesgo país",
-      "url": "https://eleconomista.com.ar/economia/el-futuro-economico-argentino-juega-politica-n98144",
-      "source": "eleconomista.com.ar",
+      "title": "1 - 2 ！ 维拉第88分钟遭绝杀 4轮不胜仅1分 夏窗3亿欧卖6大核心致崩盘",
+      "url": "https://www.163.com/dy/article/L6LOAHI00529CA1F.html",
+      "source": "163.com",
       "date": "20260912T163000Z",
-      "language": "Spanish"
-    },
-    {
-      "region": "Austrália",
-      "title": "Coffee grounds biochar concrete Australia : In 2024 , engineers turned 140 , 000 coffee worth of used grounds into concrete ; the 30 - cubic - metre footpath saved more than 3 tons of sand",
-      "url": "https://economictimes.indiatimes.com/news/international/us/in-2024-engineers-turned-140000-coffees-worth-of-used-grounds-into-concrete-the-30-cubic-metre-footpath-saved-more-than-3-tons-of-sand/articleshow/134139866.cms",
-      "source": "economictimes.indiatimes.com",
-      "date": "20260912T163000Z",
-      "language": "English"
-    },
-    {
-      "region": "Austrália",
-      "title": "超17万人次参与 ！ 穗港澳青少年暑期实践成果精彩绽放",
-      "url": "https://m.mp.oeeee.com/a/BAAFRD0000202609121665022.html",
-      "source": "m.mp.oeeee.com",
-      "date": "20260912T161500Z",
       "language": "Chinese"
     },
     {
-      "region": "Austrália",
-      "title": "Các đại gia Việt chuyển giao quyền lực thế nào ?",
-      "url": "https://cafebiz.vn/cac-dai-gia-viet-chuyen-giao-quyen-luc-the-nao-17626091219525004.chn",
-      "source": "cafebiz.vn",
-      "date": "20260912T160000Z",
-      "language": "Vietnamese"
+      "region": "China",
+      "title": "China increases purchases of U . S . soybeans ahead of harvest",
+      "url": "https://littleapplepost.com/posts/9f39fc81-c01f-4bc8-845c-42e9ae2087ed",
+      "source": "littleapplepost.com",
+      "date": "20260912T161500Z",
+      "language": "English"
     },
     {
       "region": "América Latina",
@@ -844,19 +492,11 @@
       "language": "English"
     },
     {
-      "region": "Brasil",
-      "title": "What to Eat in Rio , According to a Local Chef",
-      "url": "https://www.nationalgeographic.com/travel/article/what-to-eat-in-rio-according-to-a-local-chef",
-      "source": "nationalgeographic.com",
-      "date": "20260912T150000Z",
-      "language": "English"
-    },
-    {
-      "region": "Austrália",
-      "title": "16 splashy and spectacular images from the 2026 Ocean Photographer of the Year awards",
-      "url": "https://www.popsci.com/environment/ocean-photographer-of-the-year-2026-winners/",
-      "source": "popsci.com",
-      "date": "20260912T150000Z",
+      "region": "China",
+      "title": "China increases purchases of U . S . soybeans ahead of harvest",
+      "url": "https://greatbendpost.com/posts/9f39fc81-c01f-4bc8-845c-42e9ae2087ed",
+      "source": "greatbendpost.com",
+      "date": "20260912T153000Z",
       "language": "English"
     },
     {
@@ -868,30 +508,6 @@
       "language": "Chinese"
     },
     {
-      "region": "Argentina",
-      "title": "El dulce milagro de Carabelas : la familia que desafió a la agricultura con 50 años de pasión por las abejas",
-      "url": "https://www.infocampo.com.ar/el-dulce-milagro-de-carabelas-la-familia-que-desafio-a-la-agricultura-con-50-anos-de-pasion-por-las-abejas/",
-      "source": "infocampo.com.ar",
-      "date": "20260912T141500Z",
-      "language": "Spanish"
-    },
-    {
-      "region": "Austrália",
-      "title": "「 素晴らしい経験 」 初登板の織田翔希が6回1失点の好投 U18",
-      "url": "https://mainichi.jp/articles/20260912/k00/00m/050/183000c",
-      "source": "mainichi.jp",
-      "date": "20260912T141500Z",
-      "language": "Japanese"
-    },
-    {
-      "region": "Austrália",
-      "title": "粤桂协作消费帮扶系列推介展示活动在广州启动 - 中新网",
-      "url": "https://www.chinanews.com.cn/cj/2026/09-12/10695471.shtml",
-      "source": "chinanews.com.cn",
-      "date": "20260912T141500Z",
-      "language": "Chinese"
-    },
-    {
       "region": "América Latina",
       "title": "2026外滩大会在沪闭幕 ： AI 进入商业现场 ， AI新经济形成广泛共识 - 经济观察网 － 专业财经新闻网站",
       "url": "http://www.eeo.com.cn/2026/0912/1034288.shtml",
@@ -900,44 +516,12 @@
       "language": "Chinese"
     },
     {
-      "region": "Estados Unidos",
+      "region": "China",
       "title": "ویران بندرگاہیں ، مہنگائی اور تیل کے کنویں کو نقصان پہنچنے کا اندیشہ : جنگ اور بحری محاصرہ ایران کی معیشت کو کیسے متاثر کر رہا ہے ؟",
       "url": "https://www.bbc.com/urdu/articles/ce8e3rv1jggo",
       "source": "bbc.com",
       "date": "20260912T140000Z",
       "language": "Urdu"
-    },
-    {
-      "region": "Brasil",
-      "title": "Os riscos da nova safra : custos , dívidas e clima desafiam agricultores",
-      "url": "https://globorural.globo.com/agricultura/noticia/2026/09/os-riscos-da-nova-safra-custos-dividas-e-clima-desafiam-agricultores.ghtml",
-      "source": "globorural.globo.com",
-      "date": "20260912T133000Z",
-      "language": "Portuguese"
-    },
-    {
-      "region": "Austrália",
-      "title": "No . 44 : Anat Vidor , Nitsana Darshan - Leitner , and Joseph Gitler",
-      "url": "https://www.jpost.com/influencers-26/50jews-26/article-907928",
-      "source": "jpost.com",
-      "date": "20260912T133000Z",
-      "language": "English"
-    },
-    {
-      "region": "Austrália",
-      "title": "can america form a g3 together with russia and china",
-      "url": "https://www.prabhasakshi.com/column/can-america-form-a-g3-together-with-russia-and-china",
-      "source": "prabhasakshi.com",
-      "date": "20260912T131500Z",
-      "language": "Hindi"
-    },
-    {
-      "region": "Austrália",
-      "title": "Các đại gia Việt chuyển giao quyền lực thế nào ?",
-      "url": "https://kenh14.vn/cac-dai-gia-viet-chuyen-giao-quyen-luc-the-nao-215260912193548024.chn",
-      "source": "kenh14.vn",
-      "date": "20260912T131500Z",
-      "language": "Vietnamese"
     },
     {
       "region": "América Latina",
@@ -948,20 +532,12 @@
       "language": "Chinese"
     },
     {
-      "region": "Brasil",
-      "title": "市中心排队太夸张或将限购 上海女星公开说喜爱",
-      "url": "https://baijiahao.baidu.com/s?id=1876128250489207876",
-      "source": "baijiahao.baidu.com",
+      "region": "China",
+      "title": "AgweekTV Full Show : West River Dairy , soybean exports , non - GMO soybeans , 4 - H dorm",
+      "url": "https://www.agweek.com/tv/agweektv-full-show-west-river-dairy-soybean-exports-non-gmo-soybeans-4-h-dorm",
+      "source": "agweek.com",
       "date": "20260912T124500Z",
-      "language": "Chinese"
-    },
-    {
-      "region": "Austrália",
-      "title": "Các đại gia Việt chuyển giao quyền lực thế nào ?",
-      "url": "https://tienphong.vn/cac-dai-gia-viet-chuyen-giao-quyen-luc-the-nao-post1875701.tpo",
-      "source": "tienphong.vn",
-      "date": "20260912T124500Z",
-      "language": "Vietnamese"
+      "language": "English"
     },
     {
       "region": "América Latina",
@@ -988,6 +564,22 @@
       "language": "Portuguese"
     },
     {
+      "region": "China",
+      "title": "超强  厄尔尼诺将至 ， 最新预测 ！ 农产品板块持续承压",
+      "url": "https://www.stcn.com/article/detail/4182892.html",
+      "source": "stcn.com",
+      "date": "20260912T120000Z",
+      "language": "Chinese"
+    },
+    {
+      "region": "China",
+      "title": "携手推动  大金砖合作  高质量发展",
+      "url": "https://news.hangzhou.com.cn/jjxw/content/2026-09/12/content_9305384.htm",
+      "source": "news.hangzhou.com.cn",
+      "date": "20260912T120000Z",
+      "language": "Chinese"
+    },
+    {
       "region": "Argentina",
       "title": "Los costos fiscales ocultos y el fuerte impacto de los impuestos no coparticipables",
       "url": "https://www.clarin.com/rural/costos-fiscales-ocultos-fuerte-impacto-impuestos-coparticipables_0_bU8xLA4hsM.html",
@@ -996,52 +588,12 @@
       "language": "Spanish"
     },
     {
-      "region": "Austrália",
-      "title": "Leith Alexander : Narrogin filmmaker new shearing shed project | Farm Weekly",
-      "url": "https://www.farmweekly.com.au/story/9342309/leith-alexander-narrogin-filmmakers-new-shearing-shed-project/",
-      "source": "farmweekly.com.au",
-      "date": "20260912T120000Z",
-      "language": "English"
-    },
-    {
       "region": "América Latina",
       "title": "Costa Rica Exchange Rate : Dollar at a Record Low",
       "url": "https://www.riotimesonline.com/costa-rica-exchange-rate-record-colon-strongest-2026/",
       "source": "riotimesonline.com",
       "date": "20260912T120000Z",
       "language": "English"
-    },
-    {
-      "region": "Brasil",
-      "title": "El violinista Xavier Inchausti y la Orquesta Sinfónica UNCuyo se presentan en la Nave",
-      "url": "https://www.elsol.com.ar/cultura/el-violinista-xavier-inchausti-y-la-orquesta-sinfonica-uncuyo-se-presentan-en-la-nave/",
-      "source": "elsol.com.ar",
-      "date": "20260912T114500Z",
-      "language": "Spanish"
-    },
-    {
-      "region": "Brasil",
-      "title": "Estado do Rio teve a terceira cesta básica mais cara do Brasil em agosto",
-      "url": "http://avozdaserra.com.br/noticias/estado-do-rio-teve-terceira-cesta-basica-mais-cara-do-brasil-em-agosto",
-      "source": "avozdaserra.com.br",
-      "date": "20260912T113000Z",
-      "language": "Portuguese"
-    },
-    {
-      "region": "África",
-      "title": "Tysiące żurawi nad Polesiem . Wielkie liczenie już w ten weekend",
-      "url": "https://www.dziennikwschodni.pl:443/artykul/392311,tysiace-zurawi-nad-polesiem-wielkie-liczenie-juz-w-ten-weekend",
-      "source": "dziennikwschodni.pl",
-      "date": "20260912T113000Z",
-      "language": "Polish"
-    },
-    {
-      "region": "Argentina",
-      "title": "Pymes biodiésel de Santa Fe pujan por tener condiciones reales para poder competir",
-      "url": "https://www.ellitoral.com/politica/biodiesel-biocombustibles-corte-ley-reforma-surtidores-pymes-ahora-hoy_0_ucPEjl4X5w.html",
-      "source": "ellitoral.com",
-      "date": "20260912T113000Z",
-      "language": "Spanish"
     },
     {
       "region": "América Latina",
@@ -1060,43 +612,19 @@
       "language": "Spanish"
     },
     {
-      "region": "África",
-      "title": "Yediği naneye bakınız Ugandalı  nın - Kıbrıs Gazetesi - Kıbrıs Haber , KKTC Son Dakika ve Gündem Haberleri",
-      "url": "https://kibrisgazetesi.com/konu/ahmettolgay/yedigi-naneye-bakiniz-ugandalinin/",
-      "source": "kibrisgazetesi.com",
-      "date": "20260912T110000Z",
-      "language": "Turkish"
-    },
-    {
-      "region": "Austrália",
-      "title": "Μεγάλη άνοδος των ναύλων στα ξηρά φορτία – Στο επίκεντρο γεωπολιτικές αναταράξεις και το Ελ Νίνιο",
-      "url": "https://www.inewsgr.com/182/megali-anodos-ton-navlon-sta-xira-fortia--sto-epikentro-geopolitikes-anataraxeis-kai-to-el-ninio.htm",
-      "source": "inewsgr.com",
+      "region": "China",
+      "title": "氣到口誤 ！ 挺何欣純競總站台 他罵遍台中藍營竟脫口 ： 江啟臣凍蒜",
+      "url": "https://udn.com/vote2026/story/124652/9750581",
+      "source": "udn.com",
       "date": "20260912T093000Z",
-      "language": "Greek"
+      "language": "Chinese"
     },
     {
-      "region": "Austrália",
-      "title": "Ναυτιλία : Οι μεγάλες αποστάσεις απογειώνουν τους ναύλους",
-      "url": "https://www.skai.gr/news/shipping/naytilia-oi-megales-apostaseis-apogeionoun-tous-naylous",
-      "source": "skai.gr",
-      "date": "20260912T093000Z",
-      "language": "Greek"
-    },
-    {
-      "region": "Austrália",
-      "title": "Ελ Νίνιο και κοράλλια : Τι αποκαλύπτει ένα χιλιετές κλιματικό αρχείο",
-      "url": "https://www.sbctv.gr/2026/09/%CE%B9%CF%83%CF%87%CF%85%CF%81%CE%BF-%CE%B5%CE%BB-%CE%BD%CE%B9%CE%BD%CE%B9%CE%BF/",
-      "source": "sbctv.gr",
-      "date": "20260912T093000Z",
-      "language": "Greek"
-    },
-    {
-      "region": "Austrália",
-      "title": "琶醍上新 ！ 啤酒厂1985项目官宣9月23日开业 ， 打造江岸活力社交场",
-      "url": "https://baijiahao.baidu.com/s?id=1876113185099464562",
-      "source": "baijiahao.baidu.com",
-      "date": "20260912T090000Z",
+      "region": "China",
+      "title": "氣到口誤 ！ 挺何欣純競總站台 他罵遍台中藍營竟脫口 ： 江啟臣凍蒜 | 縣市長議員選戰 | 要聞",
+      "url": "https://udn.com/news/story/124652/9750581",
+      "source": "udn.com",
+      "date": "20260912T091500Z",
       "language": "Chinese"
     },
     {
@@ -1124,22 +652,6 @@
       "language": "Arabic"
     },
     {
-      "region": "África",
-      "title": "Dünya ticaretinin kapısında kriz ! Babülmendepte Husi tehdidi büyüyor",
-      "url": "https://www.haber7.com/dunya/haber/3659002-dunya-ticaretinin-kapisinda-kriz-babulmendepte-husi-tehdidi-buyuyor",
-      "source": "haber7.com",
-      "date": "20260912T083000Z",
-      "language": "Turkish"
-    },
-    {
-      "region": "Austrália",
-      "title": "Άλμα στους ναύλους δεξαμενόπλοιων φέρνουν τα μεγάλα ταξίδια - Οι πόλεμοι αυξάνουν το ρίσκο",
-      "url": "https://www.newsit.gr/oikonomia/finance/alma-stous-naylous-deksamenoploion-fernoun-ta-megala-taksidia-oi-polemoi-ayksanoun-to-risko/4772373/",
-      "source": "newsit.gr",
-      "date": "20260912T081500Z",
-      "language": "Greek"
-    },
-    {
       "region": "América Latina",
       "title": "Recuperao auto - sustentada : cinco pontos de viragem podem salvar o mundo",
       "url": "https://pt.euronews.com/2026/09/12/recuperacao-auto-sustentada-cinco-pontos-de-viragem-podem-salvar-o-mundo",
@@ -1148,20 +660,12 @@
       "language": "Portuguese"
     },
     {
-      "region": "Austrália",
-      "title": "Στα ύψη οι ναύλοι στα ξηρά φορτία – Οι γεωπολιτικές αναταράξεις και ο καιρός",
-      "url": "https://www.sofokleousin.gr/epikairotita/diethni/sta-ypsi-oi-nayloi-sta-ksira-fortia-oi-geopolitikes-anatarakseis-",
-      "source": "sofokleousin.gr",
-      "date": "20260912T080000Z",
-      "language": "Greek"
-    },
-    {
-      "region": "África",
-      "title": "Amundi Sells 34 , 557 Shares of Ingredion Incorporated $INGR",
-      "url": "https://www.dailypolitical.com/2026/09/12/amundi-sells-34557-shares-of-ingredion-incorporated-ingr.html",
-      "source": "dailypolitical.com",
-      "date": "20260912T080000Z",
-      "language": "English"
+      "region": "Argentina",
+      "title": "قناة النيل للأخبار | الرئيس السيسي يضع مصر في قلب البريكس بما يعزز مصالحها الوطنية ويخدم قضايا الجنوب العالمي",
+      "url": "https://www.nile.eg/%D8%A7%D9%84%D8%B1%D8%A6%D9%8A%D8%B3-%D8%A7%D9%84%D8%B3%D9%8A%D8%B3%D9%8A-%D9%8A%D8%B6%D8%B9-%D9%85%D8%B5%D8%B1-%D9%81%D9%8A-%D9%82%D9%84%D8%A8-%D8%A7%D9%84%D8%A8%D8%B1%D9%8A%D9%83%D8%B3-%D8%A8%D9%85",
+      "source": "nile.eg",
+      "date": "20260912T073000Z",
+      "language": "Arabic"
     },
     {
       "region": "América Latina",
@@ -1180,28 +684,92 @@
       "language": "English"
     },
     {
-      "region": "Austrália",
-      "title": "Απογειώνουν τους ναύλους στα ξηρά φορτία οι μεγάλες αποστάσεις , στο επίκεντρο γεωπολιτικές αναταράξεις και καιρικές διαταραχές",
-      "url": "https://www.protothema.gr/economy/article/1877596/apogeionoun-tous-naulous-sta-xira-fortia-oi-megales-apostaseis-sto-epikedro-geopolitikes-anataraxeis/",
-      "source": "protothema.gr",
-      "date": "20260912T070000Z",
-      "language": "Greek"
+      "region": "China",
+      "title": "携手推动  大金砖合作  高质量发展 _ 广州日报大洋网",
+      "url": "https://news.dayoo.com/china/202609/12/139997_55002707.htm",
+      "source": "news.dayoo.com",
+      "date": "20260912T054500Z",
+      "language": "Chinese"
     },
     {
-      "region": "Austrália",
-      "title": "Απογειώνουν τους ναύλους στα ξηρά φορτία οι μεγάλες αποστάσεις – Γεωπολιτικές αναταράξεις και καιρικές διαταραχές",
-      "url": "https://bankwars.gr/%CE%B1%CF%80%CE%BF%CE%B3%CE%B5%CE%B9%CF%8E%CE%BD%CE%BF%CF%85%CE%BD-%CF%84%CE%BF%CF%85%CF%82-%CE%BD%CE%B1%CF%8D%CE%BB%CE%BF%CF%85%CF%82-%CF%83%CF%84%CE%B1-%CE%BE%CE%B7%CF%81%CE%AC-%CF%86%CE%BF%CF%81/",
-      "source": "bankwars.gr",
-      "date": "20260912T063000Z",
-      "language": "Greek"
+      "region": "China",
+      "title": "Soybeans Break to New Highs on Thursday Rally",
+      "url": "https://finance.yahoo.com/markets/commodities/articles/soybeans-break-highs-thursday-rally-222044883.html",
+      "source": "finance.yahoo.com",
+      "date": "20260912T054500Z",
+      "language": "English"
     },
     {
-      "region": "África",
-      "title": "भारत में जीन एडिटिंग से तैयार फसलें लाएगी कॉर्टेवा , बीज कारोबार बढ़ाने पर बड़ा फोकस - corteva to bring gene editing products to india after demerger",
-      "url": "https://hindi.business-standard.com/companies/industrial/corteva-to-bring-gene-editing-products-to-india-after-demerger-id-551531",
-      "source": "hindi.business-standard.com",
-      "date": "20260912T063000Z",
-      "language": "Hindi"
+      "region": "Argentina",
+      "title": "Getreidepreise fallen heftig nach USDA - Report : Weizen und Mais werden verkauft",
+      "url": "https://www.agrarheute.com/markt/marktfruechte/getreidepreise-fallen-heftig-usda-report-weizen-mais-verkauft-642793",
+      "source": "agrarheute.com",
+      "date": "20260912T054500Z",
+      "language": "German"
+    },
+    {
+      "region": "China",
+      "title": "携手推动  大金砖合作  高质量发展 _ 要闻 _ 奥一网",
+      "url": "https://www.oeeee.com/html/202609/12/1742412.html",
+      "source": "oeeee.com",
+      "date": "20260912T050000Z",
+      "language": "Chinese"
+    },
+    {
+      "region": "Argentina",
+      "title": "厄尔尼诺扰动供给 农产品期货价格升温 _ 东方财富网",
+      "url": "https://finance.eastmoney.com/a/202609123872500487.html",
+      "source": "finance.eastmoney.com",
+      "date": "20260912T020000Z",
+      "language": "Chinese"
+    },
+    {
+      "region": "Argentina",
+      "title": "Con inflación firme en Estados Unidos , el riesgo argentino baja a menor nivel en un mes",
+      "url": "https://eleconomista.com.ar/finanzas/con-inflacion-firme-estados-unidos-riesgo-argentino-baja-menor-nivel-mes-n98143",
+      "source": "eleconomista.com.ar",
+      "date": "20260912T014500Z",
+      "language": "Spanish"
+    },
+    {
+      "region": "Argentina",
+      "title": "Soja registra forte queda em Chicago com previsão de safra maior nos EUA",
+      "url": "https://globorural.globo.com/cotacoes/noticia/2026/09/soja-registra-forte-queda-em-chicago-com-previsao-de-safra-maior-nos-eua.ghtml",
+      "source": "globorural.globo.com",
+      "date": "20260911T230000Z",
+      "language": "Portuguese"
+    },
+    {
+      "region": "Argentina",
+      "title": "La Canasta Básica se disparó por encima de la inflación y anticipa un aumento de la pobreza en Argentina",
+      "url": "http://www.eldestapeweb.com/economia/precios-canasta-basica-mide-pobreza-aumentaron-ipc-2026911191538",
+      "source": "eldestapeweb.com",
+      "date": "20260911T224500Z",
+      "language": "Spanish"
+    },
+    {
+      "region": "Argentina",
+      "title": "Receta de pastafrola de Doña Petrona : paso a paso para disfrutar con el mate",
+      "url": "https://elintransigente.com/2026/09/receta-pastafrola-dona-petrona-2/",
+      "source": "elintransigente.com",
+      "date": "20260911T224500Z",
+      "language": "Spanish"
+    },
+    {
+      "region": "Argentina",
+      "title": "Agriculteur à 97 ans , Oscar prend sa retraite après 85 ans",
+      "url": "https://www.aufeminin.com/societe/news-societe/oscar-lagriculteur-de-97-ans-qui-a-effectue-sa-derniere-recolte-apres-85-ans-de-travail-lete-nous-dormions-sous-la-machine-2851118.html",
+      "source": "aufeminin.com",
+      "date": "20260911T211500Z",
+      "language": "French"
+    },
+    {
+      "region": "Argentina",
+      "title": "Goal ： 阿根廷足协深陷多重危机 ， 多名主力或将集体缺阵",
+      "url": "https://www.163.com/dy/article/L6J9VC3P0549BAP0.html",
+      "source": "163.com",
+      "date": "20260911T174500Z",
+      "language": "Chinese"
     }
   ]
 }
