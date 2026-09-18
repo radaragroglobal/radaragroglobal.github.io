@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Baixar repositório
         uses: actions/checkout@v4
 
@@ -23,36 +24,73 @@ jobs:
 
       - name: Buscar notícias
         run: |
+
           python - <<'PY'
+
           import json
           import urllib.parse
           import urllib.request
           from datetime import datetime, timezone
 
+          # =====================================================
+          # CONSULTAS DO RADAR AGRO
+          # =====================================================
+
           queries = {
-              "Brasil": '(agriculture OR agribusiness OR soybean OR corn OR coffee) Brazil',
-              "África": '(agriculture OR cocoa OR coffee OR cotton OR grain) Africa',
-              "China": '(agriculture OR soybean OR corn OR wheat OR food) China',
-              "Estados Unidos": '(agriculture OR soybean OR corn OR wheat) United States',
-              "Argentina": '(agriculture OR soybean OR corn OR wheat) Argentina',
-              "Europa": '(agriculture OR wheat OR food OR grain) Europe',
-              "Índia": '(agriculture OR rice OR sugar OR cotton) India',
-              "Austrália": '(agriculture OR wheat OR grain) Australia',
-              "Rússia e Ucrânia": '(grain OR wheat OR fertilizer OR agriculture) Russia Ukraine',
-              "Oriente Médio": '(agriculture OR food OR grain OR fertilizer) Middle East',
-              "América Latina": '(agriculture OR soybean OR corn OR coffee) Latin America'
+
+              "Brasil":
+                  '(soybean OR corn OR coffee OR sugar OR beef OR agriculture) Brazil',
+
+              "África":
+                  '(cocoa OR coffee OR cotton OR corn OR wheat OR agriculture) Africa',
+
+              "China":
+                  '(soybean OR corn OR wheat OR agriculture OR food) China',
+
+              "Estados Unidos":
+                  '(soybean OR corn OR wheat OR agriculture) "United States"',
+
+              "Argentina":
+                  '(soybean OR corn OR wheat OR agriculture) Argentina',
+
+              "Europa":
+                  '(wheat OR grain OR agriculture OR food OR fertilizer) Europe',
+
+              "Índia":
+                  '(rice OR sugar OR cotton OR agriculture) India',
+
+              "Austrália":
+                  '(wheat OR grain OR agriculture) Australia',
+
+              "Rússia e Ucrânia":
+                  '(wheat OR grain OR fertilizer OR agriculture) (Russia OR Ukraine)',
+
+              "Oriente Médio":
+                  '(grain OR food OR fertilizer OR agriculture) "Middle East"',
+
+              "América Latina":
+                  '(soybean OR corn OR coffee OR agriculture) "Latin America"'
           }
 
           articles = []
 
+          # =====================================================
+          # BUSCA NO GDELT
+          # =====================================================
+
           for region, query in queries.items():
+
+              print("")
+              print("========================================")
+              print("Buscando:", region)
+              print("========================================")
 
               params = {
                   "query": query,
                   "mode": "artlist",
                   "format": "json",
-                  "maxrecords": "10",
-                  "timespan": "24h",
+                  "maxrecords": "20",
+                  "timespan": "48h",
                   "sort": "datedesc"
               }
 
@@ -62,66 +100,176 @@ jobs:
               )
 
               try:
-                  with urllib.request.urlopen(url, timeout=30) as response:
-                      data = json.loads(response.read().decode("utf-8"))
+
+                  request = urllib.request.Request(
+                      url,
+                      headers={
+                          "User-Agent": "RadarAgroGlobal/1.0"
+                      }
+                  )
+
+                  with urllib.request.urlopen(
+                      request,
+                      timeout=45
+                  ) as response:
+
+                      raw = response.read().decode("utf-8")
+
+                  data = json.loads(raw)
+
+                  found = 0
 
                   for item in data.get("articles", []):
 
-                      title = item.get("title", "").strip()
-                      link = item.get("url", "").strip()
-                      date = item.get("seendate", "").strip()
-                      domain = item.get("domain", "").strip()
+                      title = str(
+                          item.get("title", "")
+                      ).strip()
+
+                      link = str(
+                          item.get("url", "")
+                      ).strip()
+
+                      date = str(
+                          item.get("seendate", "")
+                      ).strip()
+
+                      domain = str(
+                          item.get("domain", "")
+                      ).strip()
 
                       if not title or not link:
                           continue
 
                       articles.append({
+
                           "region": region,
+
                           "title": title,
+
                           "url": link,
+
                           "source": domain,
+
                           "date": date
+
                       })
 
-              except Exception as error:
-                  print(f"Erro ao buscar {region}: {error}")
+                      found += 1
 
-          # Remove duplicatas
+                  print(
+                      "Notícias encontradas:",
+                      found
+                  )
+
+              except Exception as error:
+
+                  print(
+                      "Erro ao buscar",
+                      region,
+                      ":",
+                      error
+                  )
+
+          # =====================================================
+          # REMOVER DUPLICADAS
+          # =====================================================
+
           unique = {}
 
           for article in articles:
-              unique[article["url"]] = article
 
-          articles = list(unique.values())
+              url = article.get("url")
 
-          # Ordena por data recebida
+              if url:
+                  unique[url] = article
+
+          articles = list(
+              unique.values()
+          )
+
+          # =====================================================
+          # ORDENAR POR DATA
+          # =====================================================
+
           articles.sort(
-              key=lambda x: x.get("date", ""),
+
+              key=lambda article:
+                  article.get("date", ""),
+
               reverse=True
           )
 
+          # =====================================================
+          # LIMITAR RESULTADOS
+          # =====================================================
+
+          articles = articles[:150]
+
+          # =====================================================
+          # GERAR JSON
+          # =====================================================
+
           output = {
-              "updated": datetime.now(timezone.utc).isoformat(),
-              "source": "GDELT",
-              "news": articles[:100]
+
+              "updated":
+                  datetime.now(
+                      timezone.utc
+                  ).isoformat(),
+
+              "source":
+                  "GDELT",
+
+              "count":
+                  len(articles),
+
+              "news":
+                  articles
           }
 
-          with open("data/news-live.json", "w", encoding="utf-8") as file:
-              json.dump(output, file, ensure_ascii=False, indent=2)
+          with open(
+              "data/news-live.json",
+              "w",
+              encoding="utf-8"
+          ) as file:
 
-          print(f"Notícias encontradas: {len(articles)}")
+              json.dump(
+                  output,
+                  file,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print("")
+          print("========================================")
+          print(
+              "TOTAL DE NOTÍCIAS:",
+              len(articles)
+          )
+          print("========================================")
+
           PY
+
+      # =======================================================
+      # SALVAR ARQUIVO ATUALIZADO
+      # =======================================================
 
       - name: Salvar notícias atualizadas
         run: |
+
           git config user.name "Radar Agro Bot"
+
           git config user.email "radaragroglobal@users.noreply.github.com"
 
           git add data/news-live.json
 
           if git diff --cached --quiet; then
+
             echo "Nenhuma alteração nas notícias."
+
           else
+
             git commit -m "Atualizar notícias do Radar Agro"
+
             git push
+
           fi
