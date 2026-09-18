@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar Agro Global</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --green:#247844;
+  --green2:#eaf5ed;
+  --green3:#d7eadb;
+  --text:#243229;
+  --muted:#68756d;
+  --bg:#f6f8f6;
+  --white:#fff;
+  --border:#dfe7e1;
+  --red:#bd5149;
+  --yellow:#b88725;
+  --blue:#4776a8;
+  --shadow:0 5px 20px rgba(40,70,50,.07);
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+}
+
+button,input,select{font:inherit}
+
+button{cursor:pointer}
+
+.header{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:20;
+}
+
+.header-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:16px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-icon{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:var(--green2);
+  display:grid;
+  place-items:center;
+  font-size:23px;
+}
+
+.logo h1{
+  font-size:21px;
+}
+
+.logo small{
+  color:var(--muted);
+}
+
+.search{
+  width:310px;
+  padding:11px 15px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  outline:none;
+  background:#fafcfa;
+}
+
+.search:focus{
+  border-color:var(--green);
+}
+
+.nav{
+  background:white;
+  border-bottom:1px solid var(--border);
+  overflow-x:auto;
+}
+
+.nav-inner{
+  max-width:1400px;
+  margin:auto;
+  padding:0 24px;
+  display:flex;
+  gap:3px;
+}
+
+.nav button{
+  border:0;
+  background:none;
+  padding:14px 15px;
+  color:var(--muted);
+  white-space:nowrap;
+  border-bottom:3px solid transparent;
+}
+
+.nav button:hover,
+.nav button.active{
+  color:var(--green);
+  border-bottom-color:var(--green);
+  font-weight:bold;
+}
+
+.container{
+  max-width:1400px;
+  margin:auto;
+  padding:25px 24px 60px;
+}
+
+.page{display:none}
+.page.active{display:block}
+
+.hero{
+  background:linear-gradient(120deg,#f0f8f1,#fff);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:35px;
+  margin-bottom:22px;
+}
+
+.hero-content{
+  max-width:800px;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+  background:var(--green2);
+  color:var(--green);
+}
+
+.hero h2{
+  font-size:38px;
+  line-height:1.12;
+  margin:14px 0;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:760px;
+}
+
+.grid{
+  display:grid;
+  gap:15px;
+}
+
+.stats{
+  grid-template-columns:repeat(5,1fr);
+  margin-bottom:22px;
+}
+
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:19px;
+  box-shadow:var(--shadow);
+}
+
+.stat-title{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.stat-value{
+  font-size:24px;
+  font-weight:bold;
+  margin:6px 0;
+}
+
+.up{color:#238044}
+.down{color:var(--red)}
+.neutral{color:var(--yellow)}
+
+.section-title{
+  margin:28px 0 13px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.section-title h2{
+  font-size:21px;
+}
+
+.section-title span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.commodity-grid{
+  grid-template-columns:repeat(6,1fr);
+}
+
+.commodity{
+  transition:.15s;
+}
+
+.commodity:hover{
+  transform:translateY(-2px);
+  border-color:#b8d5bf;
+}
+
+.commodity-icon{
+  font-size:28px;
+}
+
+.commodity-name{
+  font-weight:bold;
+  margin-top:9px;
+}
+
+.price{
+  font-size:19px;
+  font-weight:bold;
+  margin-top:6px;
+}
+
+.change{
+  font-size:12px;
+  font-weight:bold;
+}
+
+.two{
+  grid-template-columns:1.45fr 1fr;
+  margin-top:20px;
+}
+
+.news-item{
+  padding:15px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.news-item:last-child{
+  border-bottom:0;
+}
+
+.news-top{
+  display:flex;
+  gap:12px;
+}
+
+.news-icon{
+  font-size:25px;
+}
+
+.news-meta{
+  font-size:11px;
+  color:var(--green);
+  font-weight:bold;
+}
+
+.news-title{
+  font-weight:bold;
+  margin:3px 0;
+}
+
+.news-text{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.region-grid{
+  grid-template-columns:repeat(4,1fr);
+}
+
+.region{
+  text-align:left;
+  transition:.15s;
+}
+
+.region:hover{
+  border-color:#afd0b7;
+  transform:translateY(-2px);
+}
+
+.region .flag{
+  font-size:27px;
+}
+
+.region h3{
+  margin-top:8px;
+}
+
+.region p{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:4px;
+}
+
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.filter{
+  padding:9px 12px;
+  border:1px solid var(--border);
+  background:white;
+  border-radius:10px;
+}
+
+.primary{
+  background:var(--green);
+  color:white;
+  border-color:var(--green);
+}
+
+.analysis{
+  background:#f0f7f1;
+  border:1px solid #d7e9da;
+  border-radius:18px;
+  padding:22px;
+}
+
+.analysis h3{
+  margin-bottom:8px;
+}
+
+.analysis p{
+  color:#59665e;
+  font-size:14px;
+}
+
+.map{
+  min-height:330px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#eef7ef,#f8fbf8);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.map-world{
+  font-size:115px;
+  opacity:.18;
+}
+
+.map-label{
+  position:absolute;
+  padding:9px 13px;
+  border-radius:20px;
+  background:white;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  font-size:12px;
+  font-weight:bold;
+}
+
+.africa{top:48%;left:47%}
+.brazil{top:58%;left:33%}
+.usa{top:29%;left:26%}
+.china{top:35%;right:22%}
+.europe{top:25%;left:49%}
+
+.alert{
+  border-left:4px solid var(--yellow);
+}
+
+.alert.red{
+  border-left-color:var(--red);
+}
+
+.alert.green{
+  border-left-color:var(--green);
+}
+
+.country-grid{
+  grid-template-columns:repeat(4,1fr);
+}
+
+.country{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.country strong{
+  display:block;
+}
+
+.country small{
+  color:var(--muted);
+}
+
+.footer{
+  margin-top:45px;
+  padding-top:20px;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(20,40,25,.35);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:50;
+}
+
+.modal.show{display:flex}
+
+.modal-box{
+  background:white;
+  max-width:520px;
+  width:100%;
+  border-radius:20px;
+  padding:25px;
+}
+
+.close{
+  float:right;
+  border:0;
+  background:none;
+  font-size:25px;
+}
+
+.preference{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:9px 11px;
+  background:#f4f8f4;
+  border-radius:10px;
+  margin:4px;
+}
+
+@media(max-width:1100px){
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .commodity-grid{grid-template-columns:repeat(3,1fr)}
+  .country-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:750px){
+  .header-inner{align-items:flex-start;flex-direction:column}
+  .search{width:100%}
+  .container{padding:18px 14px}
+  .hero{padding:25px}
+  .hero h2{font-size:29px}
+  .stats,.commodity-grid,.region-grid,.country-grid{grid-template-columns:repeat(2,1fr)}
+  .two{grid-template-columns:1fr}
+}
+
+@media(max-width:450px){
+  .stats,.commodity-grid,.region-grid,.country-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">🌿</div>
+      <div>
+        <h1>RADAR AGRO</h1>
+        <small>Inteligência global do agronegócio</small>
+      </div>
+    </div>
+
+    <input
+      id="search"
+      class="search"
+      type="search"
+      placeholder="🔎 Pesquisar commodity, país ou notícia..."
+    >
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <button class="nav-btn active" data-page="inicio">🏠 Início</button>
+      <button class="nav-btn" data-page="commodities">📈 Commodities</button>
+      <button class="nav-btn" data-page="mundo">🌎 Mundo</button>
+      <button class="nav-btn" data-page="africa">🌍 África</button>
+      <button class="nav-btn" data-page="noticias">📰 Notícias</button>
+      <button class="nav-btn" data-page="geo">🌐 Geopolítica</button>
+      <button class="nav-btn" data-page="brasil">🇧🇷 Brasil</button>
+      <button class="nav-btn" data-page="analise">🧠 Análises</button>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+<!-- INÍCIO -->
+<section id="inicio" class="page active">
+
+  <div class="hero">
+    <div class="hero-content">
+      <span class="badge">● RADAR GLOBAL</span>
+
+      <h2>
+        Tudo o que movimenta o agro no mundo.
+      </h2>
+
+      <p>
+        Acompanhe commodities, notícias, clima, geopolítica,
+        produção, comércio internacional e acontecimentos que
+        podem afetar o agronegócio brasileiro.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid stats">
+
+    <div class="card">
+      <div class="stat-title">Soja</div>
+      <div class="stat-value">US$ 10,45</div>
+      <div class="change up">▲ +1,8%</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Milho</div>
+      <div class="stat-value">US$ 4,18</div>
+      <div class="change down">▼ -0,7%</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Café</div>
+      <div class="stat-value">US$ 3,21</div>
+      <div class="change up">▲ +2,4%</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Dólar</div>
+      <div class="stat-value">R$ 5,31</div>
+      <div class="change neutral">● Monitorar</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Radar global</div>
+      <div class="stat-value">24</div>
+      <div class="change neutral">acontecimentos</div>
+    </div>
+
+  </div>
+
+  <div class="section-title">
+    <h2>📈 Commodities em foco</h2>
+    <span>Dados demonstrativos</span>
+  </div>
+
+  <div class="grid commodity-grid" id="homeCommodities"></div>
+
+  <div class="grid two">
+
+    <div class="card">
+      <div class="section-title" style="margin-top:0">
+        <h2>📰 Acontecimentos importantes</h2>
+        <span>Hoje</span>
+      </div>
+
+      <div id="homeNews"></div>
+    </div>
+
+    <div class="card">
+      <div class="section-title" style="margin-top:0">
+        <h2>🌐 Geopolítica</h2>
+        <span>Monitoramento</span>
+      </div>
+
+      <div class="alert">
+        <strong>🇺🇸 EUA × 🇨🇳 China</strong>
+        <p class="news-text">
+          Comércio, tarifas e demanda chinesa podem alterar
+          fluxos internacionais de commodities.
+        </p>
+      </div>
+
+      <br>
+
+      <div class="alert red">
+        <strong>🇷🇺 Rússia × 🇺🇦 Ucrânia</strong>
+        <p class="news-text">
+          Grãos, fertilizantes, energia e logística permanecem
+          importantes para o mercado agrícola mundial.
+        </p>
+      </div>
+
+      <br>
+
+      <div class="alert green">
+        <strong>🇧🇷 Brasil × 🌍 Mundo</strong>
+        <p class="news-text">
+          Exportações, novos mercados e concorrência internacional
+          são acompanhados pelo Radar.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- COMMODITIES -->
+<section id="commodities" class="page">
+
+  <div class="hero">
+    <span class="badge">MERCADO</span>
+    <h2>Commodities agrícolas</h2>
+    <p>
+      Acompanhe preços, movimentos e fatores que podem explicar
+      as mudanças nos principais mercados agrícolas.
+    </p>
+  </div>
+
+  <div class="filters">
+    <button class="filter primary" onclick="filterCommodity('todos')">Todas</button>
+    <button class="filter" onclick="filterCommodity('graos')">🌾 Grãos</button>
+    <button class="filter" onclick="filterCommodity('cafe')">☕ Café</button>
+    <button class="filter" onclick="filterCommodity('proteina')">🥩 Proteínas</button>
+    <button class="filter" onclick="filterCommodity('fibras')">🧵 Fibras</button>
+    <button class="filter" onclick="filterCommodity('insumos')">🧪 Insumos</button>
+  </div>
+
+  <div class="grid commodity-grid" id="allCommodities"></div>
+
+</section>
+
+
+<!-- MUNDO -->
+<section id="mundo" class="page">
+
+  <div class="hero">
+    <span class="badge">RADAR MUNDIAL</span>
+    <h2>O que está acontecendo no mundo?</h2>
+    <p>
+      Selecione uma região para analisar acontecimentos,
+      commodities, clima, comércio e possíveis impactos sobre o Brasil.
+    </p>
+  </div>
+
+  <div class="grid region-grid">
+
+    <button class="card region" onclick="region('Brasil')">
+      <div class="flag">🇧🇷</div>
+      <h3>Brasil</h3>
+      <p>Produção, exportações, clima e mercado interno.</p>
+    </button>
+
+    <button class="card region" onclick="region('África')">
+      <div class="flag">🌍</div>
+      <h3>África</h3>
+      <p>Cacau, café, algodão, grãos, clima e comércio.</p>
+    </button>
+
+    <button class="card region" onclick="region('Estados Unidos')">
+      <div class="flag">🇺🇸</div>
+      <h3>Estados Unidos</h3>
+      <p>Soja, milho, trigo, clima e política comercial.</p>
+    </button>
+
+    <button class="card region" onclick="region('China')">
+      <div class="flag">🇨🇳</div>
+      <h3>China</h3>
+      <p>Demanda, importações, estoques e consumo.</p>
+    </button>
+
+    <button class="card region" onclick="region('Argentina')">
+      <div class="flag">🇦🇷</div>
+      <h3>Argentina</h3>
+      <p>Soja, milho, trigo, câmbio e exportações.</p>
+    </button>
+
+    <button class="card region" onclick="region('Europa')">
+      <div class="flag">🇪🇺</div>
+      <h3>Europa</h3>
+      <p>Trigo, energia, comércio e regulamentações.</p>
+    </button>
+
+    <button class="card region" onclick="region('Rússia e Ucrânia')">
+      <div class="flag">🇷🇺 🇺🇦</div>
+      <h3>Rússia e Ucrânia</h3>
+      <p>Grãos, fertilizantes, energia e logística.</p>
+    </button>
+
+    <button class="card region" onclick="region('Índia')">
+      <div class="flag">🇮🇳</div>
+      <h3>Índia</h3>
+      <p>Arroz, açúcar, algodão e demanda.</p>
+    </button>
+
+    <button class="card region" onclick="region('Austrália')">
+      <div class="flag">🇦🇺</div>
+      <h3>Austrália</h3>
+      <p>Trigo, cevada, clima e exportações.</p>
+    </button>
+
+    <button class="card region" onclick="region('Oriente Médio')">
+      <div class="flag">🕌</div>
+      <h3>Oriente Médio</h3>
+      <p>Energia, alimentos, logística e geopolítica.</p>
+    </button>
+
+    <button class="card region" onclick="region('América Latina')">
+      <div class="flag">🌎</div>
+      <h3>América Latina</h3>
+      <p>Soja, milho, café, carnes e comércio.</p>
+    </button>
+
+    <button class="card region" onclick="region('Ásia')">
+      <div class="flag">🌏</div>
+      <h3>Ásia</h3>
+      <p>Grande centro mundial de demanda agrícola.</p>
+    </button>
+
+  </div>
+
+  <br>
+
+  <div class="map">
+    <div class="map-world">🌎</div>
+    <div class="map-label usa">🇺🇸 EUA</div>
+    <div class="map-label europe">🇪🇺 Europa</div>
+    <div class="map-label africa">🌍 África</div>
+    <div class="map-label brazil">🇧🇷 Brasil</div>
+    <div class="map-label china">🇨🇳 China</div>
+  </div>
+
+</section>
+
+
+<!-- ÁFRICA -->
+<section id="africa" class="page">
+
+  <div class="hero">
+    <span class="badge">🌍 RADAR ÁFRICA</span>
+    <h2>África no mercado global de commodities</h2>
+    <p>
+      Acompanhe produção, demanda, clima, acontecimentos,
+      comércio e a relação entre África e Brasil no agronegócio.
+    </p>
+  </div>
+
+  <div class="grid stats">
+
+    <div class="card">
+      <div class="stat-title">Commodity em foco</div>
+      <div class="stat-value">🍫 Cacau</div>
+      <div class="change neutral">África Ocidental</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Região</div>
+      <div class="stat-value">Oeste</div>
+      <div class="change neutral">Costa do Marfim / Gana</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Brasil × África</div>
+      <div class="stat-value">↔</div>
+      <div class="change up">Comércio</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Tema</div>
+      <div class="stat-value">Clima</div>
+      <div class="change neutral">Monitorar</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Radar</div>
+      <div class="stat-value">África</div>
+      <div class="change up">Ativo</div>
+    </div>
+
+  </div>
+
+  <div class="section-title">
+    <h2>🌾 Commodities africanas</h2>
+  </div>
+
+  <div class="grid commodity-grid">
+
+    <div class="card commodity">
+      <div class="commodity-icon">🍫</div>
+      <div class="commodity-name">Cacau</div>
+      <p class="news-text">Costa do Marfim • Gana</p>
+    </div>
+
+    <div class="card commodity">
+      <div class="commodity-icon">☕</div>
+      <div class="commodity-name">Café</div>
+      <p class="news-text">Etiópia • Uganda • Quênia</p>
+    </div>
+
+    <div class="card commodity">
+      <div class="commodity-icon">🧵</div>
+      <div class="commodity-name">Algodão</div>
+      <p class="news-text">África Ocidental</p>
+    </div>
+
+    <div class="card commodity">
+      <div class="commodity-icon">🌽</div>
+      <div class="commodity-name">Milho</div>
+      <p class="news-text">África Austral</p>
+    </div>
+
+    <div class="card commodity">
+      <div class="commodity-icon">🌾</div>
+      <div class="commodity-name">Trigo</div>
+      <p class="news-text">Importações e demanda</p>
+    </div>
+
+    <div class="card commodity">
+      <div class="commodity-icon">🐂</div>
+      <div class="commodity-name">Proteína</div>
+      <p class="news-text">Mercados em desenvolvimento</p>
+    </div>
+
+  </div>
+
+  <div class="section-title">
+    <h2>🇧🇷🌍 Brasil × África</h2>
+  </div>
+
+  <div class="grid country-grid">
+
+    <div class="card country">
+      <div>🇿🇦</div>
+      <div>
+        <strong>África do Sul</strong>
+        <small>Mercado estratégico e porta de entrada para a África Austral.</small>
+      </div>
+    </div>
+
+    <div class="card country">
+      <div>🇳🇬</div>
+      <div>
+        <strong>Nigéria</strong>
+        <small>Grande mercado consumidor e potencial comercial.</small>
+      </div>
+    </div>
+
+    <div class="card country">
+      <div>🇷🇼</div>
+      <div>
+        <strong>Ruanda</strong>
+        <small>Relações comerciais e oportunidades agropecuárias.</small>
+      </div>
+    </div>
+
+    <div class="card country">
+      <div>🇬🇭</div>
+      <div>
+        <strong>Gana</strong>
+        <small>Importante mercado ligado ao cacau e alimentos.</small>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="analysis">
+    <h3>🧠 Por que acompanhar a África?</h3>
+    <p>
+      Mudanças na produção africana podem afetar a oferta mundial de
+      determinadas commodities. Ao mesmo tempo, crescimento populacional,
+      renda, urbanização e abertura de mercados podem criar oportunidades
+      para exportadores brasileiros.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- NOTÍCIAS -->
+<section id="noticias" class="page">
+
+  <div class="hero">
+    <span class="badge">NOTÍCIAS</span>
+    <h2>Notícias que importam para o agro</h2>
+    <p>
+      O objetivo do Radar não é apenas reunir notícias, mas mostrar
+      por que cada acontecimento pode ser relevante para commodities.
+    </p>
+  </div>
+
+  <div class="filters">
+    <button class="filter primary" onclick="filterNews('todos')">Todas</button>
+    <button class="filter" onclick="filterNews('brasil')">🇧🇷 Brasil</button>
+    <button class="filter" onclick="filterNews('africa')">🌍 África</button>
+    <button class="filter" onclick="filterNews('asia')">🌏 Ásia</button>
+    <button class="filter" onclick="filterNews('america')">🌎 Américas</button>
+    <button class="filter" onclick="filterNews('geo')">🌐 Geopolítica</button>
+  </div>
+
+  <div class="card" id="newsPage"></div>
+
+</section>
+
+
+<!-- GEOPOLÍTICA -->
+<section id="geo" class="page">
+
+  <div class="hero">
+    <span class="badge">GEOPOLÍTICA</span>
+    <h2>Geopolítica & agronegócio</h2>
+    <p>
+      Conflitos, tarifas, acordos, sanções, eleições, rotas comerciais
+      e decisões governamentais podem alterar os fluxos agrícolas.
+    </p>
+  </div>
+
+  <div class="grid two">
+
+    <div class="card">
+      <h2>🇺🇸 × 🇨🇳 EUA × China</h2>
+      <br>
+      <div class="analysis">
+        <strong>Commodities relacionadas</strong>
+        <p>Soja • milho • carnes • algodão</p>
+      </div>
+      <br>
+      <p class="news-text">
+        O comércio entre grandes produtores e consumidores agrícolas
+        pode alterar origens de compra, tarifas e fluxos internacionais.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🇷🇺 × 🇺🇦 Rússia × Ucrânia</h2>
+      <br>
+      <div class="analysis">
+        <strong>Commodities relacionadas</strong>
+        <p>Trigo • milho • fertilizantes • energia</p>
+      </div>
+      <br>
+      <p class="news-text">
+        A região possui importância para a oferta agrícola e para
+        cadeias de fertilizantes e energia.
+      </p>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="card">
+    <h2>🌐 Como o Radar interpreta um acontecimento?</h2>
+
+    <br>
+
+    <div class="grid country-grid">
+
+      <div class="analysis">
+        <strong>1. Acontecimento</strong>
+        <p>O que aconteceu?</p>
+      </div>
+
+      <div class="analysis">
+        <strong>2. Commodity</strong>
+        <p>Qual produto pode ser afetado?</p>
+      </div>
+
+      <div class="analysis">
+        <strong>3. Mercado</strong>
+        <p>Oferta, demanda, preço ou logística?</p>
+      </div>
+
+      <div class="analysis">
+        <strong>4. Brasil</strong>
+        <p>Qual pode ser a relação com o agro brasileiro?</p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- BRASIL -->
+<section id="brasil" class="page">
+
+  <div class="hero">
+    <span class="badge">🇧🇷 BRASIL</span>
+    <h2>Brasil conectado ao mercado mundial</h2>
+    <p>
+      Acompanhe produção, exportações, concorrentes, compradores,
+      clima e acontecimentos internacionais que podem influenciar
+      o agronegócio brasileiro.
+    </p>
+  </div>
+
+  <div class="grid stats">
+
+    <div class="card">
+      <div class="stat-title">Soja</div>
+      <div class="stat-value">🌱</div>
+      <div class="change up">Exportação</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Milho</div>
+      <div class="stat-value">🌽</div>
+      <div class="change neutral">Mercado global</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Café</div>
+      <div class="stat-value">☕</div>
+      <div class="change up">Exportação</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Carnes</div>
+      <div class="stat-value">🐂</div>
+      <div class="change up">Mercados</div>
+    </div>
+
+    <div class="card">
+      <div class="stat-title">Açúcar</div>
+      <div class="stat-value">🍬</div>
+      <div class="change neutral">Comércio</div>
+    </div>
+
+  </div>
+
+  <div class="section-title">
+    <h2>🌎 Relações comerciais</h2>
+  </div>
+
+  <div class="grid country-grid">
+
+    <div class="card country">
+      <div>🇨🇳</div>
+      <div>
+        <strong>China</strong>
+        <small>Grande mercado consumidor de produtos agrícolas.</small>
+      </div>
+    </div>
+
+    <div class="card country">
+      <div>🇪🇺</div>
+      <div>
+        <strong>União Europeia</strong>
+        <small>Mercado relevante para diversos produtos brasileiros.</small>
+      </div>
+    </div>
+
+    <div class="card country">
+      <div>🇺🇸</div>
+      <div>
+        <strong>Estados Unidos</strong>
+        <small>Grande produtor e concorrente em várias commodities.</small>
+      </div>
+    </div>
+
+    <div class="card country">
+      <div>🌍</div>
+      <div>
+        <strong>África</strong>
+        <small>Mercados e oportunidades em expansão.</small>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ANÁLISE -->
+<section id="analise" class="page">
+
+  <div class="hero">
+    <span class="badge">🧠 INTELIGÊNCIA AGRO</span>
+    <h2>Análise do impacto</h2>
+    <p>
+      A função central do Radar Agro será transformar acontecimentos
+      mundiais em informações úteis para entender o mercado agrícola.
+    </p>
+  </div>
+
+  <div class="grid country-grid">
+
+    <div class="card">
+      <h3>🌦️ Clima</h3>
+      <p class="news-text">
+        Secas, excesso de chuva, geadas, El Niño e La Niña podem
+        alterar produtividade e oferta.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🚢 Logística</h3>
+      <p class="news-text">
+        Portos, fretes, canais e rotas marítimas influenciam
+        custos e disponibilidade.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>💰 Economia</h3>
+      <p class="news-text">
+        Câmbio, juros, inflação e crescimento afetam demanda
+        e competitividade.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🌐 Geopolítica</h3>
+      <p class="news-text">
+        Tarifas, conflitos, acordos e políticas comerciais
+        podem alterar os fluxos agrícolas.
+      </p>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="analysis">
+    <h3>🔎 Exemplo de análise</h3>
+    <p>
+      <strong>Evento:</strong> mudança na produção de uma grande região produtora.
+      <br><br>
+      <strong>Commodity:</strong> soja.
+      <br><br>
+      <strong>Primeira pergunta:</strong> a oferta mundial aumenta ou diminui?
+      <br><br>
+      <strong>Segunda pergunta:</strong> quais países dependem daquela oferta?
+      <br><br>
+      <strong>Terceira pergunta:</strong> o Brasil é concorrente, fornecedor
+      ou comprador nesse fluxo?
+      <br><br>
+      <strong>Resultado:</strong> o Radar deverá conectar essas informações
+      para produzir uma leitura do possível impacto no mercado brasileiro.
+    </p>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <span>🌿 RADAR AGRO GLOBAL</span>
+  <span>Protótipo inicial • Dados demonstrativos</span>
+</footer>
+
+</main>
+
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()">×</button>
+    <h2 id="modalTitle">Região</h2>
+    <br>
+    <p id="modalText"></p>
+    <br>
+    <button class="filter primary" onclick="closeModal()">Fechar</button>
+  </div>
+</div>
+
+
+<script>
+
+const commodities = [
+
+ {icon:"🌱",name:"Soja",price:"US$ 10,45",change:"+1,8%",type:"graos"},
+ {icon:"🌽",name:"Milho",price:"US$ 4,18",change:"-0,7%",type:"graos"},
+ {icon:"🌾",name:"Trigo",price:"US$ 5,72",change:"+0,9%",type:"graos"},
+ {icon:"☕",name:"Café",price:"US$ 3,21",change:"+2,4%",type:"cafe"},
+ {icon:"🍫",name:"Cacau",price:"US$ 7,85",change:"+1,3%",type:"cafe"},
+ {icon:"🍬",name:"Açúcar",price:"US$ 0,18",change:"-0,4%",type:"graos"},
+ {icon:"🧵",name:"Algodão",price:"US$ 0,69",change:"+0,6%",type:"fibras"},
+ {icon:"🐂",name:"Carne bovina",price:"US$ 5,91",change:"+0,8%",type:"proteina"},
+ {icon:"🐔",name:"Frango",price:"US$ 2,48",change:"+0,4%",type:"proteina"},
+ {icon:"🐖",name:"Suínos",price:"US$ 2,36",change:"-0,3%",type:"proteina"},
+ {icon:"🍚",name:"Arroz",price:"US$ 14,20",change:"+0,5%",type:"graos"},
+ {icon:"🌻",name:"Óleos vegetais",price:"US$ 1.012",change:"+1,1%",type:"graos"},
+ {icon:"🧪",name:"Fertilizantes",price:"Índice 118",change:"+1,7%",type:"insumos"},
+ {icon:"🌴",name:"Óleo de palma",price:"US$ 965",change:"+0,9%",type:"insumos"}
+];
+
+
+const news = [
+
+ {
+  region:"brasil",
+  icon:"🇧🇷",
+  meta:"BRASIL • MERCADO",
+  title:"Fluxos de exportação continuam no centro das atenções do agro",
+  text:"Movimentos de oferta, demanda, câmbio e logística podem alterar a competitividade brasileira."
+ },
+
+ {
+  region:"africa",
+  icon:"🌍",
+  meta:"ÁFRICA • CACAU",
+  title:"África Ocidental permanece importante para o mercado mundial de cacau",
+  text:"Costa do Marfim e Gana são regiões fundamentais para acompanhar condições de safra."
+ },
+
+ {
+  region:"asia",
+  icon:"🇨🇳",
+  meta:"CHINA • DEMANDA",
+  title:"Demanda asiática é uma variável central para várias commodities",
+  text:"Mudanças no consumo e nas importações podem alterar os fluxos de soja, carnes e outros produtos."
+ },
+
+ {
+  region:"america",
+  icon:"🇺🇸",
+  meta:"EUA • PRODUÇÃO",
+  title:"Clima norte-americano segue relevante para grãos",
+  text:"Condições de plantio e desenvolvimento das lavouras podem repercutir nos preços internacionais."
+ },
+
+ {
+  region:"geo",
+  icon:"🌐",
+  meta:"GEOPOLÍTICA",
+  title:"Comércio internacional continua influenciando o agro",
+  text:"Tarifas, acordos, conflitos e mudanças regulatórias podem redirecionar fluxos de commodities."
+ }
+
+];
+
+
+function renderCommodities(list,containerId){
+
+ const container=document.getElementById(containerId);
+
+ container.innerHTML="";
+
+ list.forEach(c=>{
+
+  const card=document.createElement("div");
+
+  card.className="card commodity";
+
+  card.innerHTML=`
+    <div class="commodity-icon">${c.icon}</div>
+    <div class="commodity-name">${c.name}</div>
+    <div class="price">${c.price}</div>
+    <div class="change ${c.change.startsWith("-")?"down":"up"}">
+      ${c.change}
+    </div>
+  `;
+
+  container.appendChild(card);
+
+ });
+
+}
+
+
+function renderNews(containerId){
+
+ const container=document.getElementById(containerId);
+
+ container.innerHTML="";
+
+ news.forEach(n=>{
+
+  const item=document.createElement("div");
+
+  item.className="news-item";
+
+  item.dataset.region=n.region;
+
+  item.innerHTML=`
+    <div class="news-top">
+      <div class="news-icon">${n.icon}</div>
+      <div>
+        <div class="news-meta">${n.meta}</div>
+        <div class="news-title">${n.title}</div>
+        <div class="news-text">${n.text}</div>
+      </div>
+    </div>
+  `;
+
+  container.appendChild(item);
+
+ });
+
+}
+
+
+function filterCommodity(type){
+
+ const list =
+ type==="todos"
+ ? commodities
+ : commodities.filter(c=>c.type===type);
+
+ renderCommodities(list,"allCommodities");
+
+}
+
+
+function filterNews(region){
+
+ document.querySelectorAll("#newsPage .news-item")
+ .forEach(item=>{
+
+  item.style.display =
+   region==="todos" || item.dataset.region===region
+   ? "block"
+   : "none";
+
+ });
+
+}
+
+
+function region(name){
+
+ document.getElementById("modalTitle").textContent=name;
+
+ document.getElementById("modalText").textContent=
+ "O Radar Agro deverá reunir nesta área notícias, produção, commodities, clima, comércio, geopolítica e acontecimentos relevantes de "+name+", além de analisar como essas informações podem se relacionar com o agronegócio brasileiro.";
+
+ document.getElementById("modal").classList.add("show");
+
+}
+
+
+function closeModal(){
+
+ document.getElementById("modal").classList.remove("show");
+
+}
+
+
+document.querySelectorAll(".nav-btn").forEach(button=>{
+
+ button.addEventListener("click",()=>{
+
+  document.querySelectorAll(".nav-btn")
+   .forEach(b=>b.classList.remove("active"));
+
+  button.classList.add("active");
+
+  document.querySelectorAll(".page")
+   .forEach(p=>p.classList.remove("active"));
+
+  document
+   .getElementById(button.dataset.page)
+   .classList.add("active");
+
+  window.scrollTo({top:0,behavior:"smooth"});
+
+ });
+
+});
+
+
+document.getElementById("search").addEventListener("input",function(){
+
+ const term=this.value.toLowerCase().trim();
+
+ document.querySelectorAll(".news-item").forEach(item=>{
+
+  item.style.display=
+   item.textContent.toLowerCase().includes(term)
+   ? "block"
+   : "none";
+
+ });
+
+});
+
+
+renderCommodities(commodities,"homeCommodities");
+renderCommodities(commodities,"allCommodities");
+renderNews("homeNews");
+renderNews("newsPage");
+
+</script>
+
+</body>
+</html>
