@@ -283,6 +283,33 @@ button{cursor:pointer}
   font-size:13px;
 }
 
+.news-link{
+  display:inline-block;
+  margin-top:7px;
+  color:var(--green);
+  font-size:12px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.news-link:hover{
+  text-decoration:underline;
+}
+
+.news-source{
+  display:inline-block;
+  margin-left:8px;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.news-status{
+  padding:25px 5px;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
+
 .region-grid{
   grid-template-columns:repeat(4,1fr);
 }
@@ -565,8 +592,8 @@ button{cursor:pointer}
 
     <div class="card">
       <div class="stat-title">Radar global</div>
-      <div class="stat-value">24</div>
-      <div class="change neutral">acontecimentos</div>
+      <div class="stat-value" id="radarCount">--</div>
+      <div class="change neutral">notícias monitoradas</div>
     </div>
 
   </div>
@@ -583,10 +610,12 @@ button{cursor:pointer}
     <div class="card">
       <div class="section-title" style="margin-top:0">
         <h2>📰 Acontecimentos importantes</h2>
-        <span>Hoje</span>
+        <span>Atualização automática</span>
       </div>
 
-      <div id="homeNews"></div>
+      <div id="homeNews">
+        <div class="news-status">Carregando notícias...</div>
+      </div>
     </div>
 
     <div class="card">
@@ -909,8 +938,8 @@ button{cursor:pointer}
     <span class="badge">NOTÍCIAS</span>
     <h2>Notícias que importam para o agro</h2>
     <p>
-      O objetivo do Radar não é apenas reunir notícias, mas mostrar
-      por que cada acontecimento pode ser relevante para commodities.
+      O Radar não apenas reúne notícias: a proposta é conectar
+      acontecimentos internacionais às commodities e ao agronegócio.
     </p>
   </div>
 
@@ -923,7 +952,9 @@ button{cursor:pointer}
     <button class="filter" onclick="filterNews('geo')">🌐 Geopolítica</button>
   </div>
 
-  <div class="card" id="newsPage"></div>
+  <div class="card" id="newsPage">
+    <div class="news-status">Carregando notícias...</div>
+  </div>
 
 </section>
 
@@ -1170,7 +1201,7 @@ button{cursor:pointer}
 
 <footer class="footer">
   <span>🌿 RADAR AGRO GLOBAL</span>
-  <span>Protótipo inicial • Dados demonstrativos</span>
+  <span>Notícias: atualização automática • Mercado: estrutura inicial</span>
 </footer>
 
 </main>
@@ -1206,203 +1237,448 @@ const commodities = [
  {icon:"🌻",name:"Óleos vegetais",price:"US$ 1.012",change:"+1,1%",type:"graos"},
  {icon:"🧪",name:"Fertilizantes",price:"Índice 118",change:"+1,7%",type:"insumos"},
  {icon:"🌴",name:"Óleo de palma",price:"US$ 965",change:"+0,9%",type:"insumos"}
-];
-
-
-const news = [
-
- {
-  region:"brasil",
-  icon:"🇧🇷",
-  meta:"BRASIL • MERCADO",
-  title:"Fluxos de exportação continuam no centro das atenções do agro",
-  text:"Movimentos de oferta, demanda, câmbio e logística podem alterar a competitividade brasileira."
- },
-
- {
-  region:"africa",
-  icon:"🌍",
-  meta:"ÁFRICA • CACAU",
-  title:"África Ocidental permanece importante para o mercado mundial de cacau",
-  text:"Costa do Marfim e Gana são regiões fundamentais para acompanhar condições de safra."
- },
-
- {
-  region:"asia",
-  icon:"🇨🇳",
-  meta:"CHINA • DEMANDA",
-  title:"Demanda asiática é uma variável central para várias commodities",
-  text:"Mudanças no consumo e nas importações podem alterar os fluxos de soja, carnes e outros produtos."
- },
-
- {
-  region:"america",
-  icon:"🇺🇸",
-  meta:"EUA • PRODUÇÃO",
-  title:"Clima norte-americano segue relevante para grãos",
-  text:"Condições de plantio e desenvolvimento das lavouras podem repercutir nos preços internacionais."
- },
-
- {
-  region:"geo",
-  icon:"🌐",
-  meta:"GEOPOLÍTICA",
-  title:"Comércio internacional continua influenciando o agro",
-  text:"Tarifas, acordos, conflitos e mudanças regulatórias podem redirecionar fluxos de commodities."
- }
 
 ];
 
 
-function renderCommodities(list,containerId){
+let news = [];
 
- const container=document.getElementById(containerId);
 
- container.innerHTML="";
+function getRegionData(region){
 
- list.forEach(c=>{
+  const data = {
+    "Brasil":{
+      icon:"🇧🇷",
+      category:"BRASIL",
+      filter:"brasil"
+    },
 
-  const card=document.createElement("div");
+    "África":{
+      icon:"🌍",
+      category:"ÁFRICA",
+      filter:"africa"
+    },
 
-  card.className="card commodity";
+    "China":{
+      icon:"🇨🇳",
+      category:"CHINA",
+      filter:"asia"
+    },
 
-  card.innerHTML=`
-    <div class="commodity-icon">${c.icon}</div>
-    <div class="commodity-name">${c.name}</div>
-    <div class="price">${c.price}</div>
-    <div class="change ${c.change.startsWith("-")?"down":"up"}">
-      ${c.change}
-    </div>
-  `;
+    "Estados Unidos":{
+      icon:"🇺🇸",
+      category:"EUA",
+      filter:"america"
+    },
 
-  container.appendChild(card);
+    "Argentina":{
+      icon:"🇦🇷",
+      category:"ARGENTINA",
+      filter:"america"
+    },
 
- });
+    "Europa":{
+      icon:"🇪🇺",
+      category:"EUROPA",
+      filter:"geo"
+    },
+
+    "Índia":{
+      icon:"🇮🇳",
+      category:"ÍNDIA",
+      filter:"asia"
+    },
+
+    "Austrália":{
+      icon:"🇦🇺",
+      category:"AUSTRÁLIA",
+      filter:"asia"
+    },
+
+    "Rússia e Ucrânia":{
+      icon:"🇷🇺 🇺🇦",
+      category:"RÚSSIA / UCRÂNIA",
+      filter:"geo"
+    },
+
+    "Oriente Médio":{
+      icon:"🕌",
+      category:"ORIENTE MÉDIO",
+      filter:"geo"
+    },
+
+    "América Latina":{
+      icon:"🌎",
+      category:"AMÉRICA LATINA",
+      filter:"america"
+    }
+  };
+
+  return data[region] || {
+    icon:"🌐",
+    category:region.toUpperCase(),
+    filter:"geo"
+  };
 
 }
 
 
-function renderNews(containerId){
+async function loadLiveNews(){
 
- const container=document.getElementById(containerId);
+  const homeContainer=document.getElementById("homeNews");
+  const pageContainer=document.getElementById("newsPage");
 
- container.innerHTML="";
+  try{
 
- news.forEach(n=>{
+    const response=await fetch(
+      "data/news-live.json?ts="+Date.now(),
+      {cache:"no-store"}
+    );
 
-  const item=document.createElement("div");
+    if(!response.ok){
+      throw new Error("Arquivo de notícias não encontrado.");
+    }
 
-  item.className="news-item";
+    const data=await response.json();
 
-  item.dataset.region=n.region;
+    if(!Array.isArray(data.news) || data.news.length===0){
 
-  item.innerHTML=`
-    <div class="news-top">
-      <div class="news-icon">${n.icon}</div>
-      <div>
-        <div class="news-meta">${n.meta}</div>
-        <div class="news-title">${n.title}</div>
-        <div class="news-text">${n.text}</div>
+      homeContainer.innerHTML=`
+        <div class="news-status">
+          ⏳ Nenhuma notícia foi encontrada na última atualização.<br>
+          O sistema continuará tentando atualizar automaticamente.
+        </div>
+      `;
+
+      pageContainer.innerHTML=`
+        <div class="news-status">
+          ⏳ Nenhuma notícia disponível no momento.<br>
+          A próxima atualização automática poderá trazer novos acontecimentos.
+        </div>
+      `;
+
+      document.getElementById("radarCount").textContent="0";
+
+      return;
+    }
+
+    news=data.news.map((item,index)=>{
+
+      const regionData=getRegionData(item.region);
+
+      return {
+        id:index,
+        region:regionData.filter,
+        icon:regionData.icon,
+        meta:regionData.category+" • "+(item.source || "MONITORAMENTO"),
+        title:item.title || "Notícia sem título",
+        text:"Fonte: "+(item.source || "não identificada"),
+        url:item.url || "#",
+        date:item.date || ""
+      };
+
+    });
+
+    document.getElementById("radarCount").textContent=news.length;
+
+    renderNews("homeNews",8);
+    renderNews("newsPage",news.length);
+
+  }catch(error){
+
+    console.error("Erro ao carregar notícias:",error);
+
+    homeContainer.innerHTML=`
+      <div class="news-status">
+        ⚠️ Não foi possível carregar as notícias agora.<br>
+        O Radar tentará novamente na próxima atualização.
       </div>
-    </div>
-  `;
+    `;
 
-  container.appendChild(item);
+    pageContainer.innerHTML=`
+      <div class="news-status">
+        ⚠️ Não foi possível carregar as notícias agora.
+      </div>
+    `;
 
- });
+    document.getElementById("radarCount").textContent="--";
+
+  }
+
+}
+
+
+function renderCommodities(list,containerId){
+
+  const container=document.getElementById(containerId);
+
+  if(!container){
+    return;
+  }
+
+  container.innerHTML="";
+
+  list.forEach(c=>{
+
+    const card=document.createElement("div");
+
+    card.className="card commodity";
+
+    card.innerHTML=`
+      <div class="commodity-icon">${c.icon}</div>
+      <div class="commodity-name">${c.name}</div>
+      <div class="price">${c.price}</div>
+      <div class="change ${c.change.startsWith("-")?"down":"up"}">
+        ${c.change}
+      </div>
+    `;
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+function renderNews(containerId,limit=null){
+
+  const container=document.getElementById(containerId);
+
+  if(!container){
+    return;
+  }
+
+  container.innerHTML="";
+
+  let list=news;
+
+  if(limit){
+    list=list.slice(0,limit);
+  }
+
+  if(list.length===0){
+
+    container.innerHTML=`
+      <div class="news-status">
+        Nenhuma notícia disponível.
+      </div>
+    `;
+
+    return;
+  }
+
+  list.forEach(n=>{
+
+    const item=document.createElement("div");
+
+    item.className="news-item";
+
+    item.dataset.region=n.region;
+
+    let dateText="";
+
+    if(n.date){
+
+      const parsedDate=new Date(n.date);
+
+      if(!isNaN(parsedDate.getTime())){
+
+        dateText=parsedDate.toLocaleString(
+          "pt-BR",
+          {
+            day:"2-digit",
+            month:"2-digit",
+            hour:"2-digit",
+            minute:"2-digit"
+          }
+        );
+
+      }
+
+    }
+
+    item.innerHTML=`
+      <div class="news-top">
+
+        <div class="news-icon">
+          ${n.icon}
+        </div>
+
+        <div>
+
+          <div class="news-meta">
+            ${n.meta}
+          </div>
+
+          <div class="news-title">
+            ${escapeHtml(n.title)}
+          </div>
+
+          <div class="news-text">
+            ${escapeHtml(n.text)}
+            ${dateText ? " • "+dateText : ""}
+          </div>
+
+          ${
+            n.url && n.url!=="#"
+            ?
+            `<a class="news-link"
+                href="${escapeAttribute(n.url)}"
+                target="_blank"
+                rel="noopener noreferrer">
+                🔗 Ler notícia original
+             </a>`
+            :
+            ""
+          }
+
+        </div>
+
+      </div>
+    `;
+
+    container.appendChild(item);
+
+  });
+
+}
+
+
+function escapeHtml(text){
+
+  const div=document.createElement("div");
+
+  div.textContent=text || "";
+
+  return div.innerHTML;
+
+}
+
+
+function escapeAttribute(text){
+
+  return String(text || "")
+    .replace(/&/g,"&amp;")
+    .replace(/"/g,"&quot;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;");
 
 }
 
 
 function filterCommodity(type){
 
- const list =
- type==="todos"
- ? commodities
- : commodities.filter(c=>c.type===type);
+  const list =
+    type==="todos"
+    ? commodities
+    : commodities.filter(c=>c.type===type);
 
- renderCommodities(list,"allCommodities");
+  renderCommodities(list,"allCommodities");
 
 }
 
 
 function filterNews(region){
 
- document.querySelectorAll("#newsPage .news-item")
- .forEach(item=>{
+  document
+    .querySelectorAll("#newsPage .news-item")
+    .forEach(item=>{
 
-  item.style.display =
-   region==="todos" || item.dataset.region===region
-   ? "block"
-   : "none";
+      item.style.display =
+        region==="todos" ||
+        item.dataset.region===region
+        ? "block"
+        : "none";
 
- });
+    });
 
 }
 
 
 function region(name){
 
- document.getElementById("modalTitle").textContent=name;
+  document.getElementById("modalTitle").textContent=name;
 
- document.getElementById("modalText").textContent=
- "O Radar Agro deverá reunir nesta área notícias, produção, commodities, clima, comércio, geopolítica e acontecimentos relevantes de "+name+", além de analisar como essas informações podem se relacionar com o agronegócio brasileiro.";
+  document.getElementById("modalText").textContent=
+    "O Radar Agro deverá reunir nesta área notícias, produção, commodities, clima, comércio, geopolítica e acontecimentos relevantes de "
+    +name+
+    ", além de analisar como essas informações podem se relacionar com o agronegócio brasileiro.";
 
- document.getElementById("modal").classList.add("show");
+  document.getElementById("modal").classList.add("show");
 
 }
 
 
 function closeModal(){
 
- document.getElementById("modal").classList.remove("show");
+  document.getElementById("modal").classList.remove("show");
 
 }
 
 
 document.querySelectorAll(".nav-btn").forEach(button=>{
 
- button.addEventListener("click",()=>{
+  button.addEventListener("click",()=>{
 
-  document.querySelectorAll(".nav-btn")
-   .forEach(b=>b.classList.remove("active"));
+    document
+      .querySelectorAll(".nav-btn")
+      .forEach(b=>b.classList.remove("active"));
 
-  button.classList.add("active");
+    button.classList.add("active");
 
-  document.querySelectorAll(".page")
-   .forEach(p=>p.classList.remove("active"));
+    document
+      .querySelectorAll(".page")
+      .forEach(p=>p.classList.remove("active"));
 
-  document
-   .getElementById(button.dataset.page)
-   .classList.add("active");
+    document
+      .getElementById(button.dataset.page)
+      .classList.add("active");
 
-  window.scrollTo({top:0,behavior:"smooth"});
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
 
- });
-
-});
-
-
-document.getElementById("search").addEventListener("input",function(){
-
- const term=this.value.toLowerCase().trim();
-
- document.querySelectorAll(".news-item").forEach(item=>{
-
-  item.style.display=
-   item.textContent.toLowerCase().includes(term)
-   ? "block"
-   : "none";
-
- });
+  });
 
 });
 
 
-renderCommodities(commodities,"homeCommodities");
-renderCommodities(commodities,"allCommodities");
-renderNews("homeNews");
-renderNews("newsPage");
+document.getElementById("search").addEventListener(
+  "input",
+  function(){
+
+    const term=this.value.toLowerCase().trim();
+
+    document
+      .querySelectorAll(".news-item")
+      .forEach(item=>{
+
+        item.style.display=
+          item.textContent
+            .toLowerCase()
+            .includes(term)
+          ? "block"
+          : "none";
+
+      });
+
+  }
+);
+
+
+renderCommodities(
+  commodities,
+  "homeCommodities"
+);
+
+renderCommodities(
+  commodities,
+  "allCommodities"
+);
+
+
+loadLiveNews();
 
 </script>
 
