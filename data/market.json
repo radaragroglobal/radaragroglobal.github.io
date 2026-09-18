@@ -1,0 +1,97 @@
+{
+  "updated": "2026-09-17",
+  "status": "estrutura inicial",
+  "commodities": [
+    {
+      "name": "Soja",
+      "symbol": "SOJA",
+      "unit": "US$/bushel",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Milho",
+      "symbol": "MILHO",
+      "unit": "US$/bushel",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Trigo",
+      "symbol": "TRIGO",
+      "unit": "US$/bushel",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Café",
+      "symbol": "CAFE",
+      "unit": "US$/libra",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Cacau",
+      "symbol": "CACAU",
+      "unit": "US$/tonelada",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Açúcar",
+      "symbol": "ACUCAR",
+      "unit": "US$/libra",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Algodão",
+      "symbol": "ALGODAO",
+      "unit": "US$/libra",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Arroz",
+      "symbol": "ARROZ",
+      "unit": "US$/tonelada",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Carne bovina",
+      "symbol": "CARNE_BOVINA",
+      "unit": "US$/tonelada",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Carne de frango",
+      "symbol": "FRANGO",
+      "unit": "US$/tonelada",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Carne suína",
+      "symbol": "SUINOS",
+      "unit": "US$/tonelada",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Fertilizantes",
+      "symbol": "FERTILIZANTES",
+      "unit": "índice",
+      "value": null,
+      "change": null
+    },
+    {
+      "name": "Dólar",
+      "symbol": "USD_BRL",
+      "unit": "BRL/USD",
+      "value": null,
+      "change": null
+    }
+  ]
+}
