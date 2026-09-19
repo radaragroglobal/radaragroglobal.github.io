@@ -37,7 +37,7 @@ jobs:
           python-version: "3.12"
 
       # ============================================================
-      # BUSCAR E FILTRAR NOTÍCIAS
+      # BUSCAR NOTÍCIAS
       # ============================================================
 
       - name: Buscar notícias
@@ -56,7 +56,7 @@ jobs:
 
 
           # ========================================================
-          # IDIOMAS PERMITIDOS
+          # IDIOMAS
           # ========================================================
 
           LANGUAGES = {
@@ -65,254 +65,261 @@ jobs:
               "Spanish": "spanish"
           }
 
-          ALLOWED_LANGUAGES = {
-              "English",
-              "Portuguese",
-              "Spanish"
-          }
-
 
           # ========================================================
           # REGIÕES
-          #
-          # IMPORTANTE:
-          # A região é definida pela CONSULTA que originou a notícia.
-          # Não tentamos mais descobrir a região apenas pelo título.
           # ========================================================
 
-          REGIONS = {
+          REGION_QUERIES = {
 
-              "Brasil": [
-                  "Brazil",
-                  "Brazilian",
-                  "Brasil",
-                  "Brazil agriculture",
-                  "Brazil soybean",
-                  "Brazil corn",
-                  "Brazil coffee",
-                  "Brazil cattle",
-                  "Brazil grain",
-                  "Brazil fertilizer"
-              ],
+              "Brasil": (
+                  '"Brazil agriculture" OR '
+                  '"Brazilian agriculture" OR '
+                  '"Brazil soybean" OR '
+                  '"Brazil corn" OR '
+                  '"Brazil coffee" OR '
+                  '"Brazil cattle" OR '
+                  '"Brazil grain" OR '
+                  '"Brazil fertilizer" OR '
+                  '"Brasil agricultura" OR '
+                  '"Brasil soja" OR '
+                  '"Brasil milho" OR '
+                  '"Brasil café" OR '
+                  '"Brasil pecuária"'
+              ),
 
-              "África": [
-                  "Africa",
-                  "African agriculture",
-                  "African farmers",
-                  "Nigeria agriculture",
-                  "Kenya agriculture",
-                  "Ethiopia agriculture",
-                  "Ghana agriculture",
-                  "South Africa agriculture",
-                  "Zambia agriculture",
-                  "Zimbabwe agriculture",
-                  "Tanzania agriculture",
-                  "Uganda agriculture",
-                  "Mozambique agriculture",
-                  "Angola agriculture",
-                  "Senegal agriculture",
-                  "Mali agriculture",
-                  "Burkina Faso agriculture",
-                  "Cameroon agriculture",
-                  "Benin agriculture",
-                  "Ivory Coast agriculture",
-                  "Côte d'Ivoire agriculture"
-              ],
+              "África": (
+                  '"Africa agriculture" OR '
+                  '"African agriculture" OR '
+                  '"African farmers" OR '
+                  '"Nigeria agriculture" OR '
+                  '"Kenya agriculture" OR '
+                  '"Ethiopia agriculture" OR '
+                  '"Ghana agriculture" OR '
+                  '"South Africa agriculture" OR '
+                  '"Zambia agriculture" OR '
+                  '"Zimbabwe agriculture" OR '
+                  '"Tanzania agriculture" OR '
+                  '"Uganda agriculture" OR '
+                  '"Mozambique agriculture" OR '
+                  '"Angola agriculture" OR '
+                  '"Senegal agriculture" OR '
+                  '"Mali agriculture" OR '
+                  '"Burkina Faso agriculture" OR '
+                  '"Cameroon agriculture" OR '
+                  '"Benin agriculture" OR '
+                  '"Ivory Coast agriculture" OR '
+                  '"Côte d\'Ivoire agriculture" OR '
+                  '"África agricultura" OR '
+                  '"África agronegócio"'
+              ),
 
-              "Estados Unidos": [
-                  "United States agriculture",
-                  "U.S. agriculture",
-                  "American agriculture",
-                  "American farmers",
-                  "U.S. farmers",
-                  "U.S. soybean",
-                  "U.S. corn",
-                  "U.S. wheat",
-                  "U.S. cattle",
-                  "U.S. grain"
-              ],
+              "Estados Unidos": (
+                  '"United States agriculture" OR '
+                  '"U.S. agriculture" OR '
+                  '"American agriculture" OR '
+                  '"American farmers" OR '
+                  '"U.S. farmers" OR '
+                  '"U.S. soybean" OR '
+                  '"U.S. corn" OR '
+                  '"U.S. wheat" OR '
+                  '"U.S. cattle" OR '
+                  '"U.S. grain"'
+              ),
 
-              "China": [
-                  "China agriculture",
-                  "Chinese agriculture",
-                  "Chinese farmers",
-                  "China soybean",
-                  "China corn",
-                  "China wheat",
-                  "China rice",
-                  "China grain",
-                  "China agricultural imports"
-              ],
+              "China": (
+                  '"China agriculture" OR '
+                  '"Chinese agriculture" OR '
+                  '"Chinese farmers" OR '
+                  '"China soybean" OR '
+                  '"China corn" OR '
+                  '"China wheat" OR '
+                  '"China rice" OR '
+                  '"China grain" OR '
+                  '"China agricultural imports"'
+              ),
 
-              "Argentina": [
-                  "Argentina agriculture",
-                  "Argentine agriculture",
-                  "Argentine farmers",
-                  "Argentina soybean",
-                  "Argentina corn",
-                  "Argentina wheat",
-                  "Argentina grain"
-              ],
+              "Argentina": (
+                  '"Argentina agriculture" OR '
+                  '"Argentine agriculture" OR '
+                  '"Argentine farmers" OR '
+                  '"Argentina soybean" OR '
+                  '"Argentina corn" OR '
+                  '"Argentina wheat" OR '
+                  '"Argentina grain" OR '
+                  '"Argentina agriculture prices"'
+              ),
 
-              "Índia": [
-                  "India agriculture",
-                  "Indian agriculture",
-                  "Indian farmers",
-                  "India soybean",
-                  "India wheat",
-                  "India rice",
-                  "India sugar",
-                  "India grain"
-              ],
+              "Índia": (
+                  '"India agriculture" OR '
+                  '"Indian agriculture" OR '
+                  '"Indian farmers" OR '
+                  '"India soybean" OR '
+                  '"India wheat" OR '
+                  '"India rice" OR '
+                  '"India sugar" OR '
+                  '"India grain"'
+              ),
 
-              "Europa": [
-                  "European agriculture",
-                  "European farmers",
-                  "European Union agriculture",
-                  "EU agriculture",
-                  "Europe grain",
-                  "Europe wheat",
-                  "European fertilizer"
-              ],
+              "Europa": (
+                  '"European agriculture" OR '
+                  '"European farmers" OR '
+                  '"European Union agriculture" OR '
+                  '"EU agriculture" OR '
+                  '"Europe grain" OR '
+                  '"Europe wheat" OR '
+                  '"European fertilizer"'
+              ),
 
-              "Rússia e Ucrânia": [
-                  "Russia agriculture",
-                  "Russian agriculture",
-                  "Ukraine agriculture",
-                  "Ukrainian agriculture",
-                  "Russian wheat",
-                  "Ukrainian wheat",
-                  "Ukraine grain",
-                  "Black Sea grain",
-                  "Russia grain exports",
-                  "Ukraine grain exports"
-              ],
+              "Rússia e Ucrânia": (
+                  '"Russia agriculture" OR '
+                  '"Russian agriculture" OR '
+                  '"Ukraine agriculture" OR '
+                  '"Ukrainian agriculture" OR '
+                  '"Russian wheat" OR '
+                  '"Ukrainian wheat" OR '
+                  '"Ukraine grain" OR '
+                  '"Black Sea grain" OR '
+                  '"Russia grain exports" OR '
+                  '"Ukraine grain exports"'
+              ),
 
-              "Austrália": [
-                  "Australia agriculture",
-                  "Australian agriculture",
-                  "Australian farmers",
-                  "Australian wheat",
-                  "Australian grain",
-                  "Australia livestock"
-              ],
+              "Austrália": (
+                  '"Australia agriculture" OR '
+                  '"Australian agriculture" OR '
+                  '"Australian farmers" OR '
+                  '"Australian wheat" OR '
+                  '"Australian grain" OR '
+                  '"Australia livestock"'
+              ),
 
-              "Oriente Médio": [
-                  "Middle East agriculture",
-                  "Middle East food security",
-                  "Saudi Arabia agriculture",
-                  "Iran agriculture",
-                  "Iraq agriculture",
-                  "Israel agriculture",
-                  "United Arab Emirates agriculture",
-                  "UAE agriculture",
-                  "Qatar agriculture",
-                  "Yemen agriculture",
-                  "Oman agriculture"
-              ],
+              "Oriente Médio": (
+                  '"Middle East agriculture" OR '
+                  '"Middle East food security" OR '
+                  '"Saudi Arabia agriculture" OR '
+                  '"Iran agriculture" OR '
+                  '"Iraq agriculture" OR '
+                  '"Israel agriculture" OR '
+                  '"UAE agriculture" OR '
+                  '"Qatar agriculture" OR '
+                  '"Yemen agriculture" OR '
+                  '"Oman agriculture"'
+              ),
 
-              "América Latina": [
-                  "Latin America agriculture",
-                  "Latin American agriculture",
-                  "Mexico agriculture",
-                  "Colombia agriculture",
-                  "Chile agriculture",
-                  "Peru agriculture",
-                  "Paraguay agriculture",
-                  "Uruguay agriculture",
-                  "Bolivia agriculture",
-                  "Ecuador agriculture"
-              ]
+              "América Latina": (
+                  '"Latin America agriculture" OR '
+                  '"Latin American agriculture" OR '
+                  '"Mexico agriculture" OR '
+                  '"Colombia agriculture" OR '
+                  '"Chile agriculture" OR '
+                  '"Peru agriculture" OR '
+                  '"Paraguay agriculture" OR '
+                  '"Uruguay agriculture" OR '
+                  '"Bolivia agriculture" OR '
+                  '"Ecuador agriculture"'
+              )
           }
 
 
           # ========================================================
-          # TERMOS AGRO FORTES
+          # TERMOS AGRO
           # ========================================================
 
           AGRO_TERMS = [
 
-              # commodities
               "soybean",
               "soybeans",
               "soy",
               "soybean prices",
+
               "corn",
               "maize",
+
               "wheat",
               "rice",
+
               "coffee",
+
               "cocoa",
               "cacao",
+
               "sugar",
               "sugarcane",
+
               "cotton",
+
               "beef",
               "cattle",
               "livestock",
+
               "poultry",
               "chicken",
+
               "pork",
               "swine",
+
               "fertilizer",
               "fertiliser",
+
               "grain",
               "grains",
 
-              # produção
               "agriculture",
               "agricultural",
+
               "farmer",
               "farmers",
               "farming",
+
               "crop",
               "crops",
+
               "harvest",
               "planting",
+
               "production",
               "yield",
 
-              # mercado
+              "exports",
+              "imports",
+
+              "commodity",
+              "commodities",
+
+              "commodity prices",
+              "food prices",
+
               "agricultural exports",
               "agricultural imports",
-              "grain exports",
-              "grain shipments",
-              "food prices",
-              "commodity prices",
-              "farm prices",
-              "crop prices",
+
               "agricultural market",
               "commodity market",
-              "food market",
 
-              # clima
               "drought",
               "flood",
               "flooding",
+
               "weather",
               "rainfall",
               "climate",
+
               "heatwave",
               "frost",
 
-              # comércio
               "tariff",
               "tariffs",
+
               "trade",
-              "exports",
-              "imports",
               "shipment",
               "shipments",
+
               "supply",
               "demand",
+
               "stocks",
               "forecast"
           ]
 
-
-          # ========================================================
-          # TERMOS EM PORTUGUÊS
-          # ========================================================
 
           AGRO_PT = [
 
@@ -322,14 +329,19 @@ jobs:
               "agricultores",
               "agropecuária",
               "agropecuário",
+
               "lavoura",
               "lavouras",
+
               "safra",
               "safras",
+
               "plantio",
               "colheita",
+
               "produção",
               "produtividade",
+
               "soja",
               "milho",
               "trigo",
@@ -339,25 +351,34 @@ jobs:
               "açúcar",
               "cana-de-açúcar",
               "algodão",
+
               "gado",
               "pecuária",
               "carne bovina",
               "frango",
               "suínos",
+
               "fertilizante",
               "fertilizantes",
+
               "grão",
               "grãos",
+
               "exportação",
               "exportações",
+
               "importação",
               "importações",
+
               "preço agrícola",
               "preços agrícolas",
+
               "preço de alimentos",
               "preços de alimentos",
+
               "mercado agrícola",
               "mercado de commodities",
+
               "seca",
               "enchente",
               "chuva",
@@ -366,25 +387,27 @@ jobs:
           ]
 
 
-          # ========================================================
-          # TERMOS EM ESPANHOL
-          # ========================================================
-
           AGRO_ES = [
 
               "agricultura",
               "agrícola",
               "agricultor",
               "agricultores",
+
               "agropecuario",
               "agropecuaria",
+
               "cultivo",
               "cultivos",
+
               "cosecha",
               "cosechas",
+
               "siembra",
+
               "producción",
               "rendimiento",
+
               "soja",
               "maíz",
               "trigo",
@@ -394,22 +417,32 @@ jobs:
               "azúcar",
               "caña de azúcar",
               "algodón",
+
               "ganado",
               "ganadería",
+
               "carne vacuna",
               "pollo",
               "cerdo",
+              "porcino",
+
               "fertilizante",
               "fertilizantes",
+
               "grano",
               "granos",
+
               "exportación",
               "exportaciones",
+
               "importación",
               "importaciones",
+
               "precios agrícolas",
               "precios de alimentos",
+
               "mercado agrícola",
+
               "sequía",
               "inundación",
               "lluvias",
@@ -417,7 +450,11 @@ jobs:
           ]
 
 
-          ALL_AGRO_TERMS = AGRO_TERMS + AGRO_PT + AGRO_ES
+          ALL_AGRO_TERMS = (
+              AGRO_TERMS +
+              AGRO_PT +
+              AGRO_ES
+          )
 
 
           # ========================================================
@@ -465,9 +502,7 @@ jobs:
                   "sugar",
                   "sugarcane",
                   "açúcar",
-                  "azúcar",
-                  "cana de açúcar",
-                  "caña de azúcar"
+                  "azúcar"
               ],
 
               "Algodão": [
@@ -497,14 +532,12 @@ jobs:
                   "pork",
                   "swine",
                   "suínos",
-                  "suinocultura",
                   "cerdo",
                   "porcino"
               ],
 
               "Fertilizantes": [
                   "fertilizer",
-                  "fertilisers",
                   "fertiliser",
                   "fertilizante",
                   "fertilizantes"
@@ -540,7 +573,7 @@ jobs:
 
 
           # ========================================================
-          # FONTES QUE NORMALMENTE GERAM RUÍDO
+          # DOMÍNIOS BLOQUEADOS
           # ========================================================
 
           BLOCKED_DOMAINS = {
@@ -549,7 +582,14 @@ jobs:
               "163.com",
               "mankatofreepress.com",
               "wsls.com",
-              "science20.com"
+              "science20.com",
+
+              "webdunia.com",
+              "haberler.com",
+              "lrytas.lt",
+              "respუბლika.lt",
+              "respublika.lt",
+              "dw.com"
           }
 
 
@@ -559,10 +599,11 @@ jobs:
 
           def normalize(text):
 
-              text = unescape(str(text or ""))
-              text = text.lower()
+              text = unescape(
+                  str(text or "")
+              )
 
-              text = text.replace("&amp;", " and ")
+              text = text.lower()
 
               text = re.sub(
                   r"\s+",
@@ -581,52 +622,47 @@ jobs:
 
 
           # ========================================================
-          # SCRIPTS NÃO PERMITIDOS
+          # ESCRITAS NÃO PERMITIDAS
           # ========================================================
 
           def contains_forbidden_script(text):
 
               if not text:
+
                   return True
 
               forbidden_ranges = [
 
-                  # japonês / chinês
                   r"[\u3040-\u30ff]",
+
                   r"[\u3400-\u4dbf]",
                   r"[\u4e00-\u9fff]",
 
-                  # coreano
                   r"[\uac00-\ud7af]",
 
-                  # árabe
                   r"[\u0600-\u06ff]",
 
-                  # hebraico
                   r"[\u0590-\u05ff]",
 
-                  # cirílico
                   r"[\u0400-\u04ff]",
 
-                  # grego
                   r"[\u0370-\u03ff]",
 
-                  # devanagari
                   r"[\u0900-\u097f]",
 
-                  # bengali
                   r"[\u0980-\u09ff]",
 
-                  # gujarati
                   r"[\u0a80-\u0aff]",
 
-                  # thai
                   r"[\u0e00-\u0e7f]"
               ]
 
               for pattern in forbidden_ranges:
 
-                  if re.search(pattern, text):
+                  if re.search(
+                      pattern,
+                      text
+                  ):
 
                       return True
 
@@ -634,7 +670,7 @@ jobs:
 
 
           # ========================================================
-          # VERIFICAR AGRO
+          # VERIFICAR SE É AGRO
           # ========================================================
 
           def agro_matches(title):
@@ -648,17 +684,22 @@ jobs:
                   normalized_term = normalize(term)
 
                   if not normalized_term:
+
                       continue
 
                   if normalized_term in normalized:
 
-                      matches.append(normalized_term)
+                      matches.append(
+                          normalized_term
+                      )
 
-              return list(dict.fromkeys(matches))
+              return list(
+                  dict.fromkeys(matches)
+              )
 
 
           # ========================================================
-          # COMMODITIES
+          # DETECTAR COMMODITIES
           # ========================================================
 
           def detect_commodities(title):
@@ -673,7 +714,10 @@ jobs:
 
                       if normalize(term) in normalized:
 
-                          found.append(commodity)
+                          found.append(
+                              commodity
+                          )
+
                           break
 
               return found
@@ -685,7 +729,9 @@ jobs:
 
           def clean_domain(domain):
 
-              domain = str(domain or "").lower().strip()
+              domain = str(
+                  domain or ""
+              ).lower().strip()
 
               domain = domain.replace(
                   "www.",
@@ -701,11 +747,11 @@ jobs:
 
               for trusted in TRUSTED_DOMAINS:
 
-                  trusted = clean_domain(trusted)
-
                   if (
                       domain == trusted
-                      or domain.endswith("." + trusted)
+                      or domain.endswith(
+                          "." + trusted
+                      )
                   ):
 
                       return True
@@ -719,11 +765,11 @@ jobs:
 
               for blocked in BLOCKED_DOMAINS:
 
-                  blocked = clean_domain(blocked)
-
                   if (
                       domain == blocked
-                      or domain.endswith("." + blocked)
+                      or domain.endswith(
+                          "." + blocked
+                      )
                   ):
 
                       return True
@@ -741,17 +787,19 @@ jobs:
 
               stopwords = {
 
-                  "the", "a", "an", "of", "and",
-                  "to", "in", "on", "for", "with",
-                  "from", "by", "as", "at",
+                  "the", "a", "an", "of",
+                  "and", "to", "in", "on",
+                  "for", "with", "from",
+                  "by", "as", "at",
 
-                  "o", "a", "os", "as", "de",
-                  "da", "do", "e", "para",
-                  "em", "com", "por",
+                  "o", "a", "os", "as",
+                  "de", "da", "do",
+                  "e", "para", "em",
+                  "com", "por",
 
-                  "el", "la", "los", "las",
-                  "de", "del", "y", "en",
-                  "con", "por"
+                  "el", "la", "los",
+                  "las", "del",
+                  "y", "en", "con"
               }
 
               words = [
@@ -780,7 +828,7 @@ jobs:
                   "https://api.gdeltproject.org/api/v2/doc/doc"
                   f"?query={encoded}"
                   "&mode=artlist"
-                  "&maxrecords=30"
+                  "&maxrecords=50"
                   "&timespan=72h"
                   "&sort=datedesc"
                   "&format=json"
@@ -794,13 +842,13 @@ jobs:
 
                       headers={
                           "User-Agent":
-                          "RadarAgroGlobal/4.0"
+                          "RadarAgroGlobal/5.0"
                       }
                   )
 
                   with urllib.request.urlopen(
                       request,
-                      timeout=20
+                      timeout=30
                   ) as response:
 
                       raw = response.read().decode(
@@ -819,153 +867,6 @@ jobs:
                   return {
                       "articles": []
                   }
-
-
-          # ========================================================
-          # CONSULTAS
-          #
-          # A região é definida aqui.
-          # O título não pode "mover" a notícia para outra região.
-          # ========================================================
-
-          REGION_QUERIES = {
-
-              "Brasil": (
-                  '("Brazil agriculture" OR '
-                  '"Brazilian agriculture" OR '
-                  '"Brazil soybean" OR '
-                  '"Brazil corn" OR '
-                  '"Brazil coffee" OR '
-                  '"Brazil cattle" OR '
-                  '"Brazil grain" OR '
-                  '"Brazil fertilizer")'
-              ),
-
-              "África": (
-                  '("Africa agriculture" OR '
-                  '"African agriculture" OR '
-                  '"African farmers" OR '
-                  '"Nigeria agriculture" OR '
-                  '"Kenya agriculture" OR '
-                  '"Ethiopia agriculture" OR '
-                  '"Ghana agriculture" OR '
-                  '"South Africa agriculture" OR '
-                  '"Zambia agriculture" OR '
-                  '"Zimbabwe agriculture" OR '
-                  '"Tanzania agriculture" OR '
-                  '"Uganda agriculture" OR '
-                  '"Mozambique agriculture" OR '
-                  '"Angola agriculture" OR '
-                  '"Senegal agriculture" OR '
-                  '"Mali agriculture" OR '
-                  '"Burkina Faso agriculture" OR '
-                  '"Cameroon agriculture" OR '
-                  '"Benin agriculture" OR '
-                  '"Ivory Coast agriculture")'
-              ),
-
-              "Estados Unidos": (
-                  '("United States agriculture" OR '
-                  '"U.S. agriculture" OR '
-                  '"American agriculture" OR '
-                  '"American farmers" OR '
-                  '"U.S. soybean" OR '
-                  '"U.S. corn" OR '
-                  '"U.S. wheat" OR '
-                  '"U.S. cattle")'
-              ),
-
-              "China": (
-                  '("China agriculture" OR '
-                  '"Chinese agriculture" OR '
-                  '"Chinese farmers" OR '
-                  '"China soybean" OR '
-                  '"China corn" OR '
-                  '"China wheat" OR '
-                  '"China rice" OR '
-                  '"China grain" OR '
-                  '"China agricultural imports")'
-              ),
-
-              "Argentina": (
-                  '("Argentina agriculture" OR '
-                  '"Argentine agriculture" OR '
-                  '"Argentine farmers" OR '
-                  '"Argentina soybean" OR '
-                  '"Argentina corn" OR '
-                  '"Argentina wheat" OR '
-                  '"Argentina grain")'
-              ),
-
-              "Índia": (
-                  '("India agriculture" OR '
-                  '"Indian agriculture" OR '
-                  '"Indian farmers" OR '
-                  '"India soybean" OR '
-                  '"India wheat" OR '
-                  '"India rice" OR '
-                  '"India sugar" OR '
-                  '"India grain")'
-              ),
-
-              "Europa": (
-                  '("European agriculture" OR '
-                  '"European farmers" OR '
-                  '"European Union agriculture" OR '
-                  '"EU agriculture" OR '
-                  '"Europe grain" OR '
-                  '"Europe wheat" OR '
-                  '"European fertilizer")'
-              ),
-
-              "Rússia e Ucrânia": (
-                  '("Russia agriculture" OR '
-                  '"Russian agriculture" OR '
-                  '"Ukraine agriculture" OR '
-                  '"Ukrainian agriculture" OR '
-                  '"Russian wheat" OR '
-                  '"Ukrainian wheat" OR '
-                  '"Ukraine grain" OR '
-                  '"Black Sea grain" OR '
-                  '"Russia grain exports" OR '
-                  '"Ukraine grain exports")'
-              ),
-
-              "Austrália": (
-                  '("Australia agriculture" OR '
-                  '"Australian agriculture" OR '
-                  '"Australian farmers" OR '
-                  '"Australian wheat" OR '
-                  '"Australian grain" OR '
-                  '"Australia livestock")'
-              ),
-
-              "Oriente Médio": (
-                  '("Middle East agriculture" OR '
-                  '"Middle East food security" OR '
-                  '"Saudi Arabia agriculture" OR '
-                  '"Iran agriculture" OR '
-                  '"Iraq agriculture" OR '
-                  '"Israel agriculture" OR '
-                  '"UAE agriculture" OR '
-                  '"Qatar agriculture" OR '
-                  '"Yemen agriculture" OR '
-                  '"Oman agriculture")'
-              ),
-
-              "América Latina": (
-                  '("Latin America agriculture" OR '
-                  '"Latin American agriculture" OR '
-                  '"Mexico agriculture" OR '
-                  '"Colombia agriculture" OR '
-                  '"Chile agriculture" OR '
-                  '"Peru agriculture" OR '
-                  '"Paraguay agriculture" OR '
-                  '"Uruguay agriculture" OR '
-                  '"Bolivia agriculture" OR '
-                  '"Ecuador agriculture")'
-              )
-          }
 
 
           # ========================================================
@@ -988,15 +889,22 @@ jobs:
                   print("=" * 70)
                   print("REGIÃO:", region)
                   print("IDIOMA:", language_name)
-                  print("QUERY:", query)
                   print("=" * 70)
 
-                  data = fetch_gdelt(query)
+                  data = fetch_gdelt(
+                      query
+                  )
 
                   articles = data.get(
                       "articles",
                       []
                   )
+
+                  print(
+                      "Resultados recebidos:",
+                      len(articles)
+                  )
+
 
                   for article in articles:
 
@@ -1007,12 +915,14 @@ jobs:
                           )
                       ).strip()
 
+
                       url = str(
                           article.get(
                               "url",
                               ""
                           )
                       ).strip()
+
 
                       source = clean_domain(
                           article.get(
@@ -1021,6 +931,7 @@ jobs:
                           )
                       )
 
+
                       date = str(
                           article.get(
                               "seendate",
@@ -1028,125 +939,74 @@ jobs:
                           )
                       ).strip()
 
-                      article_language = str(
-                          article.get(
-                              "language",
-                              ""
-                          )
-                      ).strip()
-
-
-                      # ------------------------------------------------
-                      # CAMPOS OBRIGATÓRIOS
-                      # ------------------------------------------------
 
                       if not title or not url:
 
                           continue
 
 
-                      # ------------------------------------------------
+                      # =================================================
                       # IDIOMA
                       #
-                      # O idioma precisa ser confirmado.
-                      # Campo vazio também é rejeitado.
-                      # ------------------------------------------------
+                      # O idioma é determinado pelo sourcelang
+                      # usado na consulta.
+                      # =================================================
 
-                      if article_language not in ALLOWED_LANGUAGES:
-
-                          print(
-                              "REJEITADO - idioma:",
-                              article_language,
-                              "|",
-                              title
-                          )
-
-                          continue
+                      article_language = language_name
 
 
-                      # ------------------------------------------------
-                      # GARANTIA EXTRA CONTRA OUTROS ALFABETOS
-                      # ------------------------------------------------
+                      # =================================================
+                      # ALFABETO
+                      # =================================================
 
-                      if contains_forbidden_script(title):
-
-                          print(
-                              "REJEITADO - escrita:",
-                              title
-                          )
+                      if contains_forbidden_script(
+                          title
+                      ):
 
                           continue
 
 
-                      # ------------------------------------------------
-                      # DOMÍNIOS BLOQUEADOS
-                      # ------------------------------------------------
+                      # =================================================
+                      # DOMÍNIO BLOQUEADO
+                      # =================================================
 
-                      if is_blocked_domain(source):
-
-                          print(
-                              "REJEITADO - domínio:",
-                              source
-                          )
+                      if is_blocked_domain(
+                          source
+                      ):
 
                           continue
 
 
-                      # ------------------------------------------------
+                      # =================================================
                       # AGRO
-                      # ------------------------------------------------
+                      # =================================================
 
-                      agro = agro_matches(title)
+                      agro = agro_matches(
+                          title
+                      )
 
                       if not agro:
 
                           continue
 
 
-                      # ------------------------------------------------
+                      # =================================================
                       # COMMODITIES
-                      # ------------------------------------------------
+                      # =================================================
 
                       commodities = detect_commodities(
                           title
                       )
 
 
-                      # ------------------------------------------------
-                      # RELEVÂNCIA
-                      # ------------------------------------------------
+                      # =================================================
+                      # FILTRO DE CONTEÚDO GENÉRICO
+                      # =================================================
 
-                      score = 0
+                      normalized_title = normalize(
+                          title
+                      )
 
-                      score += min(
-                          len(agro),
-                          5
-                      ) * 2
-
-                      score += min(
-                          len(commodities),
-                          3
-                      ) * 4
-
-
-                      if is_trusted_domain(source):
-
-                          score += 8
-
-
-                      if len(title) >= 60:
-
-                          score += 1
-
-
-                      if len(title) >= 100:
-
-                          score += 1
-
-
-                      # ------------------------------------------------
-                      # REJEITAR TÍTULOS GENÉRICOS
-                      # ------------------------------------------------
 
                       generic_terms = [
 
@@ -1164,13 +1024,9 @@ jobs:
                           "horoscope",
                           "concert",
                           "actor",
-                          "actress"
+                          "actress",
+                          "sports"
                       ]
-
-
-                      normalized_title = normalize(
-                          title
-                      )
 
 
                       if any(
@@ -1181,13 +1037,50 @@ jobs:
                           continue
 
 
-                      # ------------------------------------------------
-                      # CHAVE DE DEDUPLICAÇÃO
-                      # ------------------------------------------------
+                      # =================================================
+                      # SCORE
+                      # =================================================
+
+                      score = 0
+
+
+                      score += min(
+                          len(agro),
+                          5
+                      ) * 2
+
+
+                      score += min(
+                          len(commodities),
+                          3
+                      ) * 4
+
+
+                      if is_trusted_domain(
+                          source
+                      ):
+
+                          score += 10
+
+
+                      if len(title) >= 60:
+
+                          score += 1
+
+
+                      if len(title) >= 100:
+
+                          score += 1
+
+
+                      # =================================================
+                      # CHAVE
+                      # =================================================
 
                       title_key = normalize_title(
                           title
                       )
+
 
                       if not title_key:
 
@@ -1235,7 +1128,11 @@ jobs:
 
                   current = unique[key]
 
-                  if item["_score"] > current["_score"]:
+                  if (
+                      item["_score"]
+                      >
+                      current["_score"]
+                  ):
 
                       unique[key] = item
 
@@ -1252,8 +1149,14 @@ jobs:
           news.sort(
 
               key=lambda item: (
-                  item.get("_score", 0),
-                  item.get("date", "")
+                  item.get(
+                      "_score",
+                      0
+                  ),
+                  item.get(
+                      "date",
+                      ""
+                  )
               ),
 
               reverse=True
@@ -1261,10 +1164,7 @@ jobs:
 
 
           # ============================================================
-          # DISTRIBUIÇÃO EQUILIBRADA
-          #
-          # Máximo 12 por região.
-          # Não cria notícias falsas para completar.
+          # DISTRIBUIÇÃO POR REGIÃO
           # ============================================================
 
           balanced = []
@@ -1281,6 +1181,7 @@ jobs:
                   0
               )
 
+
               if count >= 12:
 
                   continue
@@ -1289,6 +1190,7 @@ jobs:
               balanced.append(
                   item
               )
+
 
               region_count_temp[region] = (
                   count + 1
@@ -1332,6 +1234,7 @@ jobs:
                   "language",
                   "Unknown"
               )
+
 
               region = item.get(
                   "region",
@@ -1432,6 +1335,33 @@ jobs:
           print("=" * 70)
 
 
+          # ============================================================
+          # MOSTRAR NOTÍCIAS
+          # ============================================================
+
+          for i, item in enumerate(
+              news[:20],
+              1
+          ):
+
+              print(
+                  f"{i}. "
+                  f"[{item['region']}] "
+                  f"[{item['language']}] "
+                  f"{item['title']}"
+              )
+
+              print(
+                  f"   Fonte: {item['source']}"
+              )
+
+              print(
+                  f"   URL: {item['url']}"
+              )
+
+              print("")
+
+
       # ==============================================================
       # VALIDAR RESULTADO
       # ==============================================================
@@ -1443,7 +1373,9 @@ jobs:
           import json
           import sys
 
+
           path = "data/news-live.json"
+
 
           with open(
               path,
@@ -1475,6 +1407,7 @@ jobs:
               language = item.get(
                   "language"
               )
+
 
               if language not in allowed:
 
@@ -1518,16 +1451,16 @@ jobs:
 
               for error in errors:
 
-                  print(
-                      error
-                  )
+                  print(error)
 
               sys.exit(1)
 
 
           print(
-              f"Arquivo validado: {len(news)} notícias."
+              f"Arquivo validado: "
+              f"{len(news)} notícias."
           )
+
 
           print(
               "Idiomas:",
@@ -1536,6 +1469,7 @@ jobs:
                   {}
               )
           )
+
 
           print(
               "Regiões:",
@@ -1547,82 +1481,20 @@ jobs:
 
 
       # ==============================================================
-      # MOSTRAR RESULTADO
-      # ==============================================================
-
-      - name: Mostrar resultado
-        run: |
-
-          echo "=========================================="
-          echo "RADAR AGRO - RESULTADO"
-          echo "=========================================="
-
-          python - <<'PY'
-
-          import json
-
-          with open(
-              "data/news-live.json",
-              encoding="utf-8"
-          ) as f:
-
-              data = json.load(f)
-
-
-          print(
-              "Total:",
-              data["count"]
-          )
-
-          print(
-              "Idiomas:",
-              data["languages"]
-          )
-
-          print(
-              "Regiões:",
-              data["regions"]
-          )
-
-          print("")
-
-          for i, item in enumerate(
-              data["news"][:20],
-              1
-          ):
-
-              print(
-                  f"{i}. [{item['region']}] "
-                  f"[{item['language']}] "
-                  f"{item['title']}"
-              )
-
-              print(
-                  f"   {item['source']}"
-              )
-
-              print(
-                  f"   {item['url']}"
-              )
-
-              print("")
-
-          PY
-
-
-      # ==============================================================
       # SALVAR NO GITHUB
       # ==============================================================
 
       - name: Salvar alterações
         run: |
 
-          git config user.name "Radar Agro Global"
+          git config user.name \
+            "Radar Agro Global"
 
           git config user.email \
             "radaragroglobal@users.noreply.github.com"
 
           git add data/news-live.json
+
 
           if git diff --cached --quiet; then
 
@@ -1632,11 +1504,15 @@ jobs:
 
           fi
 
+
           git commit \
             -m "Atualizar notícias agro automaticamente"
 
+
           git fetch origin main
 
+
           git rebase origin/main
+
 
           git push origin main
