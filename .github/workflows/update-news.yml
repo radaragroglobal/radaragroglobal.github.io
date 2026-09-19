@@ -33,7 +33,7 @@ jobs:
           OUTPUT = "data/news-live.json"
 
           # ============================================================
-          # CONFIGURAÇÃO
+          # IDIOMAS PERMITIDOS
           # ============================================================
 
           LANGUAGES = {
@@ -42,16 +42,18 @@ jobs:
               "Spanish": "spanish"
           }
 
-          # Termos realmente relacionados ao agronegócio.
-          # Evitamos termos muito genéricos como "trade", "business",
-          # "weather", "politics" etc.
+          # ============================================================
+          # TERMOS AGRO
+          # ============================================================
+
           AGRO_TERMS = [
-              # Produção agrícola
+              # Inglês
               "agriculture",
               "agricultural",
               "farmer",
               "farmers",
               "farming",
+              "farm",
               "crop",
               "crops",
               "harvest",
@@ -75,15 +77,35 @@ jobs:
               "chicken",
               "pork",
               "swine",
+              "fertilizer",
+              "fertilizers",
+              "fertiliser",
+              "fertilisers",
+              "grain",
+              "grains",
+              "commodity",
+              "commodities",
+              "food prices",
+              "food security",
+              "crop losses",
+              "crop damage",
+              "drought affecting crops",
+              "grain exports",
+              "grain shipments",
 
-              # Agro em português
+              # Português
               "agricultura",
               "agrícola",
               "agricultor",
               "agricultores",
               "agropecuária",
+              "agropecuário",
               "lavoura",
+              "lavouras",
               "safra",
+              "safras",
+              "plantio",
+              "colheita",
               "soja",
               "milho",
               "trigo",
@@ -93,14 +115,26 @@ jobs:
               "cacau",
               "açúcar",
               "cana-de-açúcar",
-              "carne bovina",
               "gado",
               "pecuária",
+              "carne bovina",
               "frango",
               "suínos",
               "suinocultura",
+              "fertilizante",
+              "fertilizantes",
+              "grãos",
+              "commodity",
+              "commodities",
+              "preços agrícolas",
+              "preços de alimentos",
+              "segurança alimentar",
+              "perdas agrícolas",
+              "danos às lavouras",
+              "exportação agrícola",
+              "exportações agrícolas",
 
-              # Agro em espanhol
+              # Espanhol
               "agricultura",
               "agrícola",
               "agricultor",
@@ -108,7 +142,9 @@ jobs:
               "agropecuario",
               "agropecuaria",
               "cultivo",
+              "cultivos",
               "cosecha",
+              "cosechas",
               "siembra",
               "soja",
               "maíz",
@@ -125,228 +161,16 @@ jobs:
               "pollo",
               "cerdo",
               "porcino",
-
-              # Comércio e mercado agrícola
-              "grain",
-              "grains",
-              "commodity",
-              "commodities",
-              "food prices",
-              "food security",
-              "fertilizer",
-              "fertilizers",
-              "fertiliser",
-              "fertilisers",
               "fertilizante",
               "fertilizantes",
-              "fertilizante agrícola",
-              "exportação",
-              "exportações",
-              "importação",
-              "importações",
-              "export",
-              "exports",
-              "import",
-              "imports",
-              "agricultural exports",
-              "agricultural imports",
-              "grain exports",
-              "food prices",
-              "preços agrícolas",
-              "preços de alimentos",
-              "preço da soja",
-              "preço do milho",
-              "preço do café",
-              "preço do açúcar",
-              "precio de la soja",
-              "precio del maíz",
-              "precio del café",
-              "precio del azúcar",
-
-              # Logística e clima quando ligados ao agro
-              "grain exports",
-              "grain shipments",
-              "crop losses",
-              "crop damage",
-              "drought",
-              "floods",
-              "flooding",
-              "frost",
-              "heatwave",
-              "drought affecting crops",
-              "seca",
-              "enchente",
-              "enchentes",
-              "geada",
-              "onda de calor",
-              "perdas agrícolas",
-              "danos às lavouras",
-              "sequía",
-              "inundaciones",
-              "helada",
-              "pérdidas agrícolas"
+              "grano",
+              "granos",
+              "materias primas",
+              "precios agrícolas",
+              "seguridad alimentaria",
+              "pérdidas agrícolas",
+              "exportaciones agrícolas"
           ]
-
-          # ============================================================
-          # REGIÕES
-          # ============================================================
-
-          REGIONS = {
-
-              "Brasil": [
-                  "Brazil",
-                  "Brazilian",
-                  "Brasil",
-                  "brasileiro",
-                  "brasileira",
-                  "soja brasileira",
-                  "milho brasileiro",
-                  "agricultura brasileira",
-                  "safra brasileira",
-                  "exportações brasileiras"
-              ],
-
-              "África": [
-                  "Africa",
-                  "African",
-                  "África",
-                  "africano",
-                  "africana",
-                  "Nigeria",
-                  "Kenya",
-                  "Ethiopia",
-                  "Ghana",
-                  "Ivory Coast",
-                  "Côte d'Ivoire",
-                  "South Africa",
-                  "Zambia",
-                  "Zimbabwe",
-                  "Tanzania",
-                  "Uganda",
-                  "Mozambique",
-                  "Angola",
-                  "Senegal",
-                  "Mali",
-                  "Burkina Faso",
-                  "Cameroon",
-                  "Benin",
-                  "Ghanaian",
-                  "Nigerian",
-                  "Kenyan",
-                  "Ethiopian"
-              ],
-
-              "Estados Unidos": [
-                  "United States",
-                  "US agriculture",
-                  "U.S. agriculture",
-                  "American agriculture",
-                  "American farmers",
-                  "US farmers",
-                  "U.S. farmers",
-                  "US soybean",
-                  "US corn",
-                  "US wheat"
-              ],
-
-              "China": [
-                  "China",
-                  "Chinese",
-                  "Chinese agriculture",
-                  "Chinese farmers",
-                  "China soybean",
-                  "China corn",
-                  "China wheat",
-                  "China imports"
-              ],
-
-              "Argentina": [
-                  "Argentina",
-                  "Argentine",
-                  "Argentinean",
-                  "Argentine agriculture",
-                  "Argentine farmers",
-                  "Argentine soybean",
-                  "Argentine corn"
-              ],
-
-              "Índia": [
-                  "India",
-                  "Indian",
-                  "Indian agriculture",
-                  "Indian farmers",
-                  "India soybean",
-                  "India wheat",
-                  "India rice",
-                  "India sugar",
-                  "Indian sugar"
-              ],
-
-              "Europa": [
-                  "Europe",
-                  "European",
-                  "European Union",
-                  "EU agriculture",
-                  "EU farmers",
-                  "European agriculture"
-              ],
-
-              "Rússia e Ucrânia": [
-                  "Russia",
-                  "Russian",
-                  "Ukraine",
-                  "Ukrainian",
-                  "Black Sea grain",
-                  "Black Sea agriculture",
-                  "Russian wheat",
-                  "Ukrainian grain",
-                  "Ukraine grain exports",
-                  "Russia grain exports"
-              ],
-
-              "Austrália": [
-                  "Australia",
-                  "Australian",
-                  "Australian agriculture",
-                  "Australian farmers",
-                  "Australian wheat"
-              ],
-
-              "Oriente Médio": [
-                  "Middle East",
-                  "Middle Eastern",
-                  "Gulf",
-                  "Gulf countries",
-                  "Saudi Arabia",
-                  "Iran",
-                  "Iraq",
-                  "Israel",
-                  "United Arab Emirates",
-                  "UAE",
-                  "Qatar",
-                  "Jordan",
-                  "Yemen",
-                  "Oman"
-              ],
-
-              "América Latina": [
-                  "Latin America",
-                  "Latin American",
-                  "Mexico",
-                  "Mexican",
-                  "Colombia",
-                  "Colombian",
-                  "Chile",
-                  "Chilean",
-                  "Peru",
-                  "Peruvian",
-                  "Paraguay",
-                  "Uruguay",
-                  "Bolivia",
-                  "Ecuador",
-                  "Central America"
-              ]
-          }
 
           # ============================================================
           # COMMODITIES
@@ -356,8 +180,8 @@ jobs:
               "Soja": [
                   "soybean",
                   "soybeans",
-                  "soja",
-                  "soy"
+                  "soy",
+                  "soja"
               ],
               "Milho": [
                   "corn",
@@ -367,7 +191,7 @@ jobs:
               ],
               "Trigo": [
                   "wheat",
-                  "trigo",
+                  "trigo"
               ],
               "Arroz": [
                   "rice",
@@ -386,7 +210,7 @@ jobs:
                   "sugar",
                   "sugarcane",
                   "açúcar",
-                  "cana-de-açúcar",
+                  "cana de açúcar",
                   "azúcar",
                   "caña de azúcar"
               ],
@@ -429,75 +253,212 @@ jobs:
           }
 
           # ============================================================
+          # REGIÕES
+          # ============================================================
+
+          REGION_TERMS = {
+
+              "Brasil": [
+                  "brazil",
+                  "brazilian",
+                  "brasil",
+                  "brasileiro",
+                  "brasileira",
+                  "são paulo",
+                  "sao paulo",
+                  "paraná",
+                  "parana",
+                  "mato grosso",
+                  "goiás",
+                  "goias",
+                  "minas gerais",
+                  "rio grande do sul",
+                  "bahia"
+              ],
+
+              "África": [
+                  "africa",
+                  "african",
+                  "áfrica",
+                  "africano",
+                  "africana",
+                  "nigeria",
+                  "nigerian",
+                  "kenya",
+                  "kenyan",
+                  "ethiopia",
+                  "ethiopian",
+                  "ghana",
+                  "ghanaian",
+                  "ivory coast",
+                  "côte d'ivoire",
+                  "south africa",
+                  "south african",
+                  "zambia",
+                  "zimbabwe",
+                  "tanzania",
+                  "uganda",
+                  "mozambique",
+                  "angola",
+                  "senegal",
+                  "mali",
+                  "burkina faso",
+                  "cameroon",
+                  "benin"
+              ],
+
+              "Estados Unidos": [
+                  "united states",
+                  "u.s.",
+                  "us agriculture",
+                  "u.s. agriculture",
+                  "american agriculture",
+                  "american farmers",
+                  "us farmers",
+                  "u.s. farmers",
+                  "us soybean",
+                  "us corn",
+                  "us wheat",
+                  "american soybean",
+                  "american corn"
+              ],
+
+              "China": [
+                  "china",
+                  "chinese",
+                  "chinese agriculture",
+                  "chinese farmers",
+                  "china soybean",
+                  "china corn",
+                  "china wheat",
+                  "china imports",
+                  "chinese imports"
+              ],
+
+              "Argentina": [
+                  "argentina",
+                  "argentine",
+                  "argentinean",
+                  "argentine agriculture",
+                  "argentine farmers",
+                  "argentine soybean",
+                  "argentine corn",
+                  "argentine wheat"
+              ],
+
+              "Índia": [
+                  "india",
+                  "indian",
+                  "indian agriculture",
+                  "indian farmers",
+                  "india soybean",
+                  "india wheat",
+                  "india rice",
+                  "india sugar",
+                  "indian sugar"
+              ],
+
+              "Europa": [
+                  "europe",
+                  "european",
+                  "european union",
+                  "eu agriculture",
+                  "eu farmers",
+                  "european agriculture",
+                  "eu agricultural"
+              ],
+
+              "Rússia e Ucrânia": [
+                  "russia",
+                  "russian",
+                  "ukraine",
+                  "ukrainian",
+                  "black sea grain",
+                  "black sea agriculture",
+                  "russian wheat",
+                  "ukrainian grain",
+                  "ukraine grain exports",
+                  "russia grain exports"
+              ],
+
+              "Austrália": [
+                  "australia",
+                  "australian",
+                  "australian agriculture",
+                  "australian farmers",
+                  "australian wheat",
+                  "australian grain"
+              ],
+
+              "Oriente Médio": [
+                  "middle east",
+                  "middle eastern",
+                  "gulf",
+                  "gulf countries",
+                  "saudi arabia",
+                  "iran",
+                  "iraq",
+                  "israel",
+                  "united arab emirates",
+                  "uae",
+                  "qatar",
+                  "jordan",
+                  "yemen",
+                  "oman"
+              ],
+
+              "América Latina": [
+                  "latin america",
+                  "latin american",
+                  "mexico",
+                  "mexican",
+                  "colombia",
+                  "colombian",
+                  "chile",
+                  "chilean",
+                  "peru",
+                  "peruvian",
+                  "paraguay",
+                  "uruguay",
+                  "bolivia",
+                  "ecuador",
+                  "central america"
+              ]
+          }
+
+          # ============================================================
+          # TERMOS MUITO GENÉRICOS QUE NÃO DEVEM SER SUFICIENTES
+          # SOZINHOS PARA CLASSIFICAR UMA NOTÍCIA COMO AGRO
+          # ============================================================
+
+          WEAK_AGRO_TERMS = {
+              "commodity",
+              "commodities",
+              "grain",
+              "grains",
+              "export",
+              "exports",
+              "import",
+              "imports",
+              "food",
+              "food security",
+              "drought",
+              "flood",
+              "flooding"
+          }
+
+          # ============================================================
           # FUNÇÕES
           # ============================================================
 
           def normalize(text):
               text = str(text or "").lower()
+              text = text.replace("&amp;", " and ")
               text = re.sub(r"\s+", " ", text)
               text = re.sub(r"[^\w\s]", " ", text, flags=re.UNICODE)
               return text.strip()
 
-          def contains_agro_term(text):
-              normalized = normalize(text)
-
-              for term in AGRO_TERMS:
-                  term_normalized = normalize(term)
-
-                  if len(term_normalized) < 4:
-                      continue
-
-                  if term_normalized in normalized:
-                      return True
-
-              return False
-
-          def detect_commodity(text):
-              normalized = normalize(text)
-
-              found = []
-
-              for commodity, terms in COMMODITIES.items():
-                  for term in terms:
-                      if normalize(term) in normalized:
-                          found.append(commodity)
-                          break
-
-              return found
-
-          def detect_region(text):
-              normalized = normalize(text)
-
-              matches = []
-
-              for region, terms in REGIONS.items():
-
-                  score = 0
-
-                  for term in terms:
-                      t = normalize(term)
-
-                      if len(t) < 4:
-                          continue
-
-                      if t in normalized:
-                          score += 1
-
-                  if score > 0:
-                      matches.append((score, region))
-
-              if not matches:
-                  return None
-
-              matches.sort(reverse=True)
-
-              return matches[0][1]
-
-          def forbidden_script(text):
-              """
-              Bloqueia idiomas que não fazem parte do projeto.
-              """
-
+          def contains_forbidden_script(text):
               if not text:
                   return True
 
@@ -543,23 +504,110 @@ jobs:
 
               return False
 
+          def detect_agro_strength(title):
+              normalized = normalize(title)
+
+              strong_terms = []
+
+              for term in AGRO_TERMS:
+                  t = normalize(term)
+
+                  if len(t) < 4:
+                      continue
+
+                  if t in normalized and t not in WEAK_AGRO_TERMS:
+                      strong_terms.append(t)
+
+              return strong_terms
+
+          def detect_commodity(title):
+              normalized = normalize(title)
+
+              found = []
+
+              for commodity, terms in COMMODITIES.items():
+
+                  for term in terms:
+
+                      t = normalize(term)
+
+                      if t and t in normalized:
+                          found.append(commodity)
+                          break
+
+              return found
+
+          def detect_region(title):
+              normalized = normalize(title)
+
+              candidates = []
+
+              for region, terms in REGION_TERMS.items():
+
+                  score = 0
+
+                  for term in terms:
+
+                      t = normalize(term)
+
+                      if len(t) < 4:
+                          continue
+
+                      if t in normalized:
+
+                          # País específico vale mais que termos genéricos.
+                          if len(t.split()) >= 2:
+                              score += 3
+                          else:
+                              score += 1
+
+                  if score > 0:
+                      candidates.append((score, region))
+
+              if not candidates:
+                  return None
+
+              candidates.sort(
+                  key=lambda x: x[0],
+                  reverse=True
+              )
+
+              return candidates[0][1]
+
           def normalize_title(title):
               title = normalize(title)
 
-              # Remove palavras muito comuns para melhorar deduplicação
               stopwords = {
                   "the", "a", "an", "of", "and", "to",
+                  "in", "on", "for", "with",
                   "o", "a", "os", "as", "de", "da", "do",
-                  "e", "para",
-                  "el", "la", "los", "las", "de", "del", "y"
+                  "e", "para", "em", "com",
+                  "el", "la", "los", "las", "de",
+                  "del", "y", "en", "con"
               }
 
               words = [
-                  word for word in title.split()
+                  word
+                  for word in title.split()
                   if word not in stopwords
               ]
 
               return " ".join(words)
+
+          def title_fingerprint(title):
+              normalized = normalize_title(title)
+
+              # Retira números que costumam variar em títulos
+              normalized = re.sub(r"\b\d+\b", " ", normalized)
+
+              # Remove espaços duplicados
+              normalized = re.sub(r"\s+", " ", normalized)
+
+              return normalized.strip()
+
+          # ============================================================
+          # GDELT
+          # ============================================================
 
           def fetch_gdelt(query):
 
@@ -576,33 +624,34 @@ jobs:
               )
 
               try:
+
                   req = urllib.request.Request(
                       url,
                       headers={
-                          "User-Agent": "RadarAgroGlobal/1.0"
+                          "User-Agent": "RadarAgroGlobal/2.0"
                       }
                   )
 
-                  with urllib.request.urlopen(req, timeout=30) as response:
-                      data = response.read().decode("utf-8")
+                  with urllib.request.urlopen(
+                      req,
+                      timeout=30
+                  ) as response:
 
-                  return json.loads(data)
+                      raw = response.read().decode("utf-8")
 
-              except Exception as e:
-                  print("Erro GDELT:", e)
-                  return {"articles": []}
+                  return json.loads(raw)
+
+              except Exception as error:
+
+                  print("Erro GDELT:", error)
+
+                  return {
+                      "articles": []
+                  }
 
           # ============================================================
           # CONSULTAS
           # ============================================================
-
-          # Vamos fazer consultas específicas por região + idioma.
-          #
-          # Importante:
-          # sourcelang limita a língua da fonte.
-          # Os termos regionais evitam que uma notícia seja atribuída
-          # arbitrariamente a outra região.
-          #
 
           region_queries = {
 
@@ -617,8 +666,7 @@ jobs:
                   '"Brasil" soja',
                   '"Brasil" milho',
                   '"Brasil" café',
-                  '"Brasil" pecuária',
-                  '"Brasil" fertilizantes'
+                  '"Brasil" pecuária'
               ],
 
               "África": [
@@ -629,9 +677,11 @@ jobs:
                   '"Africa" cotton',
                   '"Africa" food security',
                   '"Africa" fertilizer',
-                  '"África" agricultura',
-                  '"África" cacau',
-                  '"África" algodão'
+                  '"Nigeria" agriculture',
+                  '"Kenya" agriculture',
+                  '"Ethiopia" agriculture',
+                  '"Ghana" agriculture',
+                  '"South Africa" agriculture'
               ],
 
               "Estados Unidos": [
@@ -671,7 +721,6 @@ jobs:
 
               "Europa": [
                   '"European Union" agriculture',
-                  '"EU" agriculture',
                   '"Europe" farmers',
                   '"European agriculture"',
                   '"EU agricultural exports"'
@@ -726,66 +775,134 @@ jobs:
 
                   for base_query in queries:
 
-                      # O idioma é obrigatório na busca.
                       query = (
                           f"({base_query}) "
                           f"sourcelang:{language_code}"
                       )
 
-                      print("Buscando:", region, language_name, query)
+                      print(
+                          "Buscando:",
+                          region,
+                          language_name,
+                          query
+                      )
 
                       data = fetch_gdelt(query)
 
-                      articles = data.get("articles", [])
+                      articles = data.get(
+                          "articles",
+                          []
+                      )
 
                       for article in articles:
 
-                          title = article.get("title", "").strip()
-                          url = article.get("url", "").strip()
-                          source = article.get("domain", "").strip()
-                          date = article.get("seendate", "").strip()
+                          title = str(
+                              article.get(
+                                  "title",
+                                  ""
+                              )
+                          ).strip()
+
+                          url = str(
+                              article.get(
+                                  "url",
+                                  ""
+                              )
+                          ).strip()
+
+                          source = str(
+                              article.get(
+                                  "domain",
+                                  ""
+                              )
+                          ).strip()
+
+                          date = str(
+                              article.get(
+                                  "seendate",
+                                  ""
+                              )
+                          ).strip()
+
+                          gdelt_language = str(
+                              article.get(
+                                  "language",
+                                  ""
+                              )
+                          ).strip()
 
                           if not title or not url:
                               continue
 
                           # ==================================================
-                          # FILTRO DE IDIOMA
+                          # IDIOMA
                           # ==================================================
 
-                          if forbidden_script(title):
+                          # Se GDELT informar um idioma diferente,
+                          # rejeitamos imediatamente.
+                          if gdelt_language:
+
+                              allowed_gdelt_languages = {
+                                  "English",
+                                  "Portuguese",
+                                  "Spanish"
+                              }
+
+                              if gdelt_language not in allowed_gdelt_languages:
+                                  continue
+
+                          # Bloqueia alfabetos incompatíveis.
+                          if contains_forbidden_script(title):
                               continue
 
                           # ==================================================
-                          # FILTRO AGRO
+                          # AGRO
                           # ==================================================
 
-                          if not contains_agro_term(title):
+                          agro_matches = detect_agro_strength(title)
+
+                          # Precisa haver pelo menos um termo agro forte.
+                          if not agro_matches:
                               continue
 
                           # ==================================================
                           # REGIÃO
                           # ==================================================
 
-                          detected = detect_region(title)
+                          detected_region = detect_region(title)
 
-                          # A notícia precisa mencionar explicitamente
-                          # a região/país ou um termo equivalente.
-                          if detected != region:
+                          if detected_region != region:
                               continue
 
                           # ==================================================
-                          # COMMODITIES
+                          # COMMODITY
                           # ==================================================
 
                           commodities = detect_commodity(title)
 
                           # ==================================================
-                          # DEDUPLICAÇÃO
+                          # PONTUAÇÃO
                           # ==================================================
 
-                          normalized = normalize_title(title)
+                          score = 0
 
-                          if not normalized:
+                          score += len(agro_matches) * 2
+
+                          score += len(commodities) * 3
+
+                          if len(title) > 40:
+                              score += 1
+
+                          if len(title) > 80:
+                              score += 1
+
+                          # ==================================================
+                          # CHAVE
+                          # ==================================================
+
+                          fingerprint = title_fingerprint(title)
+
+                          if not fingerprint:
                               continue
 
                           collected.append({
@@ -796,11 +913,12 @@ jobs:
                               "date": date,
                               "language": language_name,
                               "commodities": commodities,
-                              "_key": normalized
+                              "_score": score,
+                              "_key": fingerprint
                           })
 
           # ============================================================
-          # DEDUPLICAR
+          # DEDUPLICAÇÃO
           # ============================================================
 
           unique = {}
@@ -809,72 +927,145 @@ jobs:
 
               key = item["_key"]
 
-              # Se o mesmo título apareceu em vários sites,
-              # mantemos apenas o primeiro.
               if key not in unique:
+
                   unique[key] = item
 
-          news = list(unique.values())
+              else:
+
+                  # Se for a mesma notícia publicada em vários sites,
+                  # mantém a versão com maior pontuação.
+                  if item["_score"] > unique[key]["_score"]:
+
+                      unique[key] = item
+
+          news = list(
+              unique.values()
+          )
 
           # ============================================================
-          # ORDENAR POR DATA
+          # ORDENAR
           # ============================================================
 
           news.sort(
-              key=lambda x: x.get("date", ""),
+              key=lambda item: (
+                  item.get("_score", 0),
+                  item.get("date", "")
+              ),
               reverse=True
           )
 
-          # Remover campo interno
+          # ============================================================
+          # LIMITE POR REGIÃO
+          # ============================================================
+
+          balanced = []
+
+          region_limits = {}
+
           for item in news:
-              item.pop("_key", None)
+
+              region = item["region"]
+
+              current = region_limits.get(
+                  region,
+                  0
+              )
+
+              if current >= 15:
+                  continue
+
+              balanced.append(item)
+
+              region_limits[region] = current + 1
+
+          news = balanced[:150]
 
           # ============================================================
-          # LIMITE
+          # REMOVER CAMPOS INTERNOS
           # ============================================================
 
-          news = news[:150]
+          for item in news:
+
+              item.pop(
+                  "_score",
+                  None
+              )
+
+              item.pop(
+                  "_key",
+                  None
+              )
 
           # ============================================================
           # ESTATÍSTICAS
           # ============================================================
 
           language_count = {}
-
           region_count = {}
 
           for item in news:
 
-              lang = item.get("language", "Unknown")
-              reg = item.get("region", "Unknown")
+              language = item.get(
+                  "language",
+                  "Unknown"
+              )
 
-              language_count[lang] = language_count.get(lang, 0) + 1
-              region_count[reg] = region_count.get(reg, 0) + 1
+              region = item.get(
+                  "region",
+                  "Unknown"
+              )
+
+              language_count[language] = (
+                  language_count.get(
+                      language,
+                      0
+                  ) + 1
+              )
+
+              region_count[region] = (
+                  region_count.get(
+                      region,
+                      0
+                  ) + 1
+              )
 
           # ============================================================
           # SALVAR
           # ============================================================
 
           output = {
-              "updated": datetime.now(timezone.utc).isoformat(),
+              "updated": datetime.now(
+                  timezone.utc
+              ).isoformat(),
+
               "source": "GDELT",
+
               "count": len(news),
+
               "languages": language_count,
+
               "regions": region_count,
+
               "news": news
           }
 
-          with open(OUTPUT, "w", encoding="utf-8") as f:
+          with open(
+              OUTPUT,
+              "w",
+              encoding="utf-8"
+          ) as file:
+
               json.dump(
                   output,
-                  f,
+                  file,
                   ensure_ascii=False,
                   indent=2
               )
 
           print("")
           print("======================================")
-          print("Radar Agro atualizado")
+          print("RADAR AGRO ATUALIZADO")
           print("Total:", len(news))
           print("Idiomas:", language_count)
           print("Regiões:", region_count)
@@ -883,7 +1074,7 @@ jobs:
       - name: Verificar arquivo
         run: |
           echo "Conteúdo inicial do arquivo:"
-          head -40 data/news-live.json
+          head -80 data/news-live.json
 
       - name: Salvar alterações
         run: |
